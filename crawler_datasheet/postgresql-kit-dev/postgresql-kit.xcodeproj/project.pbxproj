@@ -326,7 +326,6 @@
 		6EFFF2351A5F04C800CAA6E7 /* PGFoundationApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFF2311A5F044E00CAA6E7 /* PGFoundationApp.m */; };
 		6EFFF23A1A5F052A00CAA6E7 /* PGFoundationApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFF2311A5F044E00CAA6E7 /* PGFoundationApp.m */; };
 		6EFFF23C1A5F053000CAA6E7 /* Terminal.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFFF2391A5F051D00CAA6E7 /* Terminal.m */; };
-		C642C49C1F1D201B00610B1C /* PGClientKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6ED85B4616288C4800A6DC02 /* PGClientKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -499,16 +498,6 @@
 			files = (
 				6EA7CA611AB23E9400F22E90 /* PGClientKit.framework in CopyFiles */,
 				6EA7CA621AB23E9400F22E90 /* PGControlsKit.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C642C49B1F1D200600610B1C /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 7;
-			files = (
-				C642C49C1F1D201B00610B1C /* PGClientKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1960,7 +1949,6 @@
 				6E4DEC81162CC38D008B26BD /* Sources */,
 				6E4DEC82162CC38D008B26BD /* Frameworks */,
 				6E4DEC83162CC38D008B26BD /* CopyFiles */,
-				C642C49B1F1D200600610B1C /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -2654,14 +2642,18 @@
 		1428045A166811D700A61BF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "";
 				PRODUCT_NAME = openssl_mac;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		1428045B166811D700A61BF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "";
 				PRODUCT_NAME = openssl_mac;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -2848,9 +2840,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-I/usr/local/include";
 				SDKROOT = macosx;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
@@ -2860,7 +2855,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "-I/usr/local/include";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -3291,8 +3288,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRELINK_LIBS = "${BUILT_PRODUCTS_DIR}/postgresql-current-mac_x86_64/lib/libpq.a ${BUILT_PRODUCTS_DIR}/openssl-current-mac_x86_64/lib/libcrypto.a ${BUILT_PRODUCTS_DIR}/openssl-current-mac_x86_64/lib/libssl.a";
 				PRODUCT_NAME = PGClientKit;
-				SYSTEM_FRAMEWORK_SEARCH_PATHS = "/opt/local/include ${inherited}";
-				SYSTEM_HEADER_SEARCH_PATHS = "/opt/local/include ${inherited}";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -3311,8 +3306,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRELINK_LIBS = "${BUILT_PRODUCTS_DIR}/postgresql-current-mac_x86_64/lib/libpq.a ${BUILT_PRODUCTS_DIR}/openssl-current-mac_x86_64/lib/libcrypto.a ${BUILT_PRODUCTS_DIR}/openssl-current-mac_x86_64/lib/libssl.a";
 				PRODUCT_NAME = PGClientKit;
-				SYSTEM_FRAMEWORK_SEARCH_PATHS = "/opt/local/include ${inherited}";
-				SYSTEM_HEADER_SEARCH_PATHS = "/opt/local/include ${inherited}";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;

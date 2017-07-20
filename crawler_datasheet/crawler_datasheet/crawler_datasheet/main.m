@@ -39,7 +39,8 @@ int allclearFethed;
 
 int main(int argc, const char * argv[]) {
     
-        
+    CFRunLoopRef *mainLoopApp = CFRunLoopGetMain();
+    
         cnt= 64;
         crawlers_obj = [NSMutableArray arrayWithCapacity: cnt];
         operation_list_collected = [NSMutableArray array];
