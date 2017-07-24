@@ -16,8 +16,7 @@
 		C622ECC51F1FC6660015175A /* HTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = C651E2F21F13DF0E006FB9F3 /* HTMLDocument.m */; };
 		C622ECC61F1FC6660015175A /* HTMLNode+XPath.m in Sources */ = {isa = PBXBuildFile; fileRef = C651E2F41F13DF0E006FB9F3 /* HTMLNode+XPath.m */; };
 		C622ECC71F1FC6660015175A /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C651E2F71F13DF0E006FB9F3 /* HTMLNode.m */; };
-		C622ED021F1FC7F80015175A /* PGClientKit.h in Sources */ = {isa = PBXBuildFile; fileRef = C622EB141F1FC5BA0015175A /* PGClientKit.h */; };
-		C625B2721F1CFBAA0005EB9D /* PGClientKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C625B2711F1CFBAA0005EB9D /* PGClientKit.framework */; };
+		C625B2721F1CFBAA0005EB9D /* PGClientKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C625B2711F1CFBAA0005EB9D /* PGClientKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C642C4971F1D086700610B1C /* PGClientKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C625B2711F1CFBAA0005EB9D /* PGClientKit.framework */; };
 		C65C1B6E1F0F95D0002E79FF /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C65C1B6D1F0F95D0002E79FF /* libxml2.tbd */; };
 /* End PBXBuildFile section */
@@ -42,360 +41,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		C675F3581F264CA200DE54D1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C622EA211F1FC5BA0015175A /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		C622EA231F1FC5BA0015175A /* NOTICE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = NOTICE.md; sourceTree = "<group>"; };
-		C622EA251F1FC5BA0015175A /* Databases.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Databases.md; sourceTree = "<group>"; };
-		C622EA261F1FC5BA0015175A /* Introduction.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Introduction.md; sourceTree = "<group>"; };
-		C622EA271F1FC5BA0015175A /* Queries.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Queries.md; sourceTree = "<group>"; };
-		C622EA281F1FC5BA0015175A /* Version.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Version.plist; sourceTree = "<group>"; };
-		C622EA2A1F1FC5BA0015175A /* build-frameworks.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "build-frameworks.sh"; sourceTree = "<group>"; };
-		C622EA2B1F1FC5BA0015175A /* build-iosapps.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "build-iosapps.sh"; sourceTree = "<group>"; };
-		C622EA2C1F1FC5BA0015175A /* build-macapps.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "build-macapps.sh"; sourceTree = "<group>"; };
-		C622EA2D1F1FC5BA0015175A /* lipo.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = lipo.sh; sourceTree = "<group>"; };
-		C622EA2E1F1FC5BA0015175A /* make-headerdoc.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "make-headerdoc.sh"; sourceTree = "<group>"; };
-		C622EA2F1F1FC5BA0015175A /* make-libpq.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "make-libpq.sh"; sourceTree = "<group>"; };
-		C622EA301F1FC5BA0015175A /* make-libpq.sh.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "make-libpq.sh.orig"; sourceTree = "<group>"; };
-		C622EA311F1FC5BA0015175A /* make-openssl.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "make-openssl.sh"; sourceTree = "<group>"; };
-		C622EA321F1FC5BA0015175A /* make-openssl.sh.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "make-openssl.sh.orig"; sourceTree = "<group>"; };
-		C622EA331F1FC5BA0015175A /* make-postgresql.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "make-postgresql.sh"; sourceTree = "<group>"; };
-		C622EA341F1FC5BA0015175A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		C622EA351F1FC5BA0015175A /* reversion-plist.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "reversion-plist.sh"; sourceTree = "<group>"; };
-		C622EA361F1FC5BA0015175A /* reversion.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = reversion.sh; sourceTree = "<group>"; };
-		C622EA371F1FC5BA0015175A /* test-frameworks.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "test-frameworks.sh"; sourceTree = "<group>"; };
-		C622EA3A1F1FC5BA0015175A /* LocalConnectionWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocalConnectionWindow.xib; sourceTree = "<group>"; };
-		C622EA3B1F1FC5BA0015175A /* LocalConnectionWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalConnectionWindowController.h; sourceTree = "<group>"; };
-		C622EA3C1F1FC5BA0015175A /* LocalConnectionWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalConnectionWindowController.m; sourceTree = "<group>"; };
-		C622EA3D1F1FC5BA0015175A /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
-		C622EA3E1F1FC5BA0015175A /* PGClient.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PGClient.plist; sourceTree = "<group>"; };
-		C622EA3F1F1FC5BA0015175A /* PGClientApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGClientApplication.h; sourceTree = "<group>"; };
-		C622EA401F1FC5BA0015175A /* PGClientApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGClientApplication.m; sourceTree = "<group>"; };
-		C622EA411F1FC5BA0015175A /* PGConnectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGConnectionController.h; sourceTree = "<group>"; };
-		C622EA421F1FC5BA0015175A /* PGConnectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGConnectionController.m; sourceTree = "<group>"; };
-		C622EA431F1FC5BA0015175A /* PGSidebarDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSidebarDataSource.h; sourceTree = "<group>"; };
-		C622EA441F1FC5BA0015175A /* PGSidebarDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSidebarDataSource.m; sourceTree = "<group>"; };
-		C622EA451F1FC5BA0015175A /* PGSidebarNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSidebarNode.h; sourceTree = "<group>"; };
-		C622EA461F1FC5BA0015175A /* PGSidebarNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSidebarNode.m; sourceTree = "<group>"; };
-		C622EA471F1FC5BA0015175A /* PGSidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSidebarViewController.h; sourceTree = "<group>"; };
-		C622EA481F1FC5BA0015175A /* PGSidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSidebarViewController.m; sourceTree = "<group>"; };
-		C622EA491F1FC5BA0015175A /* PGTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGTabViewController.h; sourceTree = "<group>"; };
-		C622EA4A1F1FC5BA0015175A /* PGTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGTabViewController.m; sourceTree = "<group>"; };
-		C622EA4B1F1FC5BA0015175A /* RemoteConnectionWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RemoteConnectionWindow.xib; sourceTree = "<group>"; };
-		C622EA4C1F1FC5BA0015175A /* RemoteConnectionWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteConnectionWindowController.h; sourceTree = "<group>"; };
-		C622EA4D1F1FC5BA0015175A /* RemoteConnectionWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteConnectionWindowController.m; sourceTree = "<group>"; };
-		C622EA4E1F1FC5BA0015175A /* PGConnection-old.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGConnection-old.h"; sourceTree = "<group>"; };
-		C622EA4F1F1FC5BA0015175A /* PGConnection-old.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGConnection-old.m"; sourceTree = "<group>"; };
-		C622EA511F1FC5BA0015175A /* PGConsoleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGConsoleView.h; sourceTree = "<group>"; };
-		C622EA521F1FC5BA0015175A /* PGConsoleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGConsoleView.m; sourceTree = "<group>"; };
-		C622EA531F1FC5BA0015175A /* PGConsoleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PGConsoleView.xib; sourceTree = "<group>"; };
-		C622EA541F1FC5BA0015175A /* PGConsoleViewImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGConsoleViewImpl.h; sourceTree = "<group>"; };
-		C622EA551F1FC5BA0015175A /* PGConsoleViewImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGConsoleViewImpl.m; sourceTree = "<group>"; };
-		C622EA561F1FC5BA0015175A /* PGGutterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGGutterView.h; sourceTree = "<group>"; };
-		C622EA571F1FC5BA0015175A /* PGGutterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGGutterView.m; sourceTree = "<group>"; };
-		C622EA591F1FC5BA0015175A /* ConfigurationPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationPrefs.h; sourceTree = "<group>"; };
-		C622EA5A1F1FC5BA0015175A /* ConfigurationPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationPrefs.m; sourceTree = "<group>"; };
-		C622EA5B1F1FC5BA0015175A /* ConnectionPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionPrefs.h; sourceTree = "<group>"; };
-		C622EA5C1F1FC5BA0015175A /* ConnectionPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionPrefs.m; sourceTree = "<group>"; };
-		C622EA5D1F1FC5BA0015175A /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
-		C622EA5E1F1FC5BA0015175A /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
-		C622EA5F1F1FC5BA0015175A /* ControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerDelegate.h; sourceTree = "<group>"; };
-		C622EA601F1FC5BA0015175A /* PGServer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PGServer-Info.plist"; sourceTree = "<group>"; };
-		C622EA611F1FC5BA0015175A /* PGServer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PGServer.xib; sourceTree = "<group>"; };
-		C622EA631F1FC5BA0015175A /* FLXGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXGeometry.h; sourceTree = "<group>"; };
-		C622EA641F1FC5BA0015175A /* FLXGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXGeometry.m; sourceTree = "<group>"; };
-		C622EA651F1FC5BA0015175A /* FLXMacAddr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXMacAddr.h; sourceTree = "<group>"; };
-		C622EA661F1FC5BA0015175A /* FLXMacAddr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXMacAddr.m; sourceTree = "<group>"; };
-		C622EA671F1FC5BA0015175A /* FLXPostgresArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXPostgresArray.h; sourceTree = "<group>"; };
-		C622EA681F1FC5BA0015175A /* FLXPostgresArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXPostgresArray.m; sourceTree = "<group>"; };
-		C622EA691F1FC5BA0015175A /* FLXPostgresConnection+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FLXPostgresConnection+Utils.h"; sourceTree = "<group>"; };
-		C622EA6A1F1FC5BA0015175A /* FLXPostgresConnection+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FLXPostgresConnection+Utils.m"; sourceTree = "<group>"; };
-		C622EA6B1F1FC5BA0015175A /* FLXPostgresConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXPostgresConnection.h; sourceTree = "<group>"; };
-		C622EA6C1F1FC5BA0015175A /* FLXPostgresConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXPostgresConnection.m; sourceTree = "<group>"; };
-		C622EA6D1F1FC5BA0015175A /* FLXPostgresException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXPostgresException.h; sourceTree = "<group>"; };
-		C622EA6E1F1FC5BA0015175A /* FLXPostgresException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXPostgresException.m; sourceTree = "<group>"; };
-		C622EA6F1F1FC5BA0015175A /* FLXPostgresResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXPostgresResult.h; sourceTree = "<group>"; };
-		C622EA701F1FC5BA0015175A /* FLXPostgresResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXPostgresResult.m; sourceTree = "<group>"; };
-		C622EA711F1FC5BA0015175A /* FLXPostgresStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXPostgresStatement.h; sourceTree = "<group>"; };
-		C622EA721F1FC5BA0015175A /* FLXPostgresStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXPostgresStatement.m; sourceTree = "<group>"; };
-		C622EA731F1FC5BA0015175A /* FLXPostgresTypeNSNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXPostgresTypeNSNumber.h; sourceTree = "<group>"; };
-		C622EA741F1FC5BA0015175A /* FLXPostgresTypeNSNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXPostgresTypeNSNumber.m; sourceTree = "<group>"; };
-		C622EA751F1FC5BA0015175A /* FLXPostgresTypeNSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXPostgresTypeNSString.h; sourceTree = "<group>"; };
-		C622EA761F1FC5BA0015175A /* FLXPostgresTypeNSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXPostgresTypeNSString.m; sourceTree = "<group>"; };
-		C622EA771F1FC5BA0015175A /* FLXPostgresTypes+Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FLXPostgresTypes+Array.h"; sourceTree = "<group>"; };
-		C622EA781F1FC5BA0015175A /* FLXPostgresTypes+Array.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FLXPostgresTypes+Array.m"; sourceTree = "<group>"; };
-		C622EA791F1FC5BA0015175A /* FLXPostgresTypes+DateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FLXPostgresTypes+DateTime.h"; sourceTree = "<group>"; };
-		C622EA7A1F1FC5BA0015175A /* FLXPostgresTypes+DateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FLXPostgresTypes+DateTime.m"; sourceTree = "<group>"; };
-		C622EA7B1F1FC5BA0015175A /* FLXPostgresTypes+Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FLXPostgresTypes+Geometry.h"; sourceTree = "<group>"; };
-		C622EA7C1F1FC5BA0015175A /* FLXPostgresTypes+Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FLXPostgresTypes+Geometry.m"; sourceTree = "<group>"; };
-		C622EA7D1F1FC5BA0015175A /* FLXPostgresTypes+NetAddr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FLXPostgresTypes+NetAddr.h"; sourceTree = "<group>"; };
-		C622EA7E1F1FC5BA0015175A /* FLXPostgresTypes+NetAddr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FLXPostgresTypes+NetAddr.m"; sourceTree = "<group>"; };
-		C622EA7F1F1FC5BA0015175A /* FLXPostgresTypes+NSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FLXPostgresTypes+NSData.h"; sourceTree = "<group>"; };
-		C622EA801F1FC5BA0015175A /* FLXPostgresTypes+NSData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FLXPostgresTypes+NSData.m"; sourceTree = "<group>"; };
-		C622EA811F1FC5BA0015175A /* FLXPostgresTypes+NSNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FLXPostgresTypes+NSNumber.h"; sourceTree = "<group>"; };
-		C622EA821F1FC5BA0015175A /* FLXPostgresTypes+NSNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FLXPostgresTypes+NSNumber.m"; sourceTree = "<group>"; };
-		C622EA831F1FC5BA0015175A /* FLXPostgresTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXPostgresTypes.h; sourceTree = "<group>"; };
-		C622EA841F1FC5BA0015175A /* FLXPostgresTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXPostgresTypes.m; sourceTree = "<group>"; };
-		C622EA851F1FC5BA0015175A /* FLXTimeInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXTimeInterval.h; sourceTree = "<group>"; };
-		C622EA861F1FC5BA0015175A /* FLXTimeInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXTimeInterval.m; sourceTree = "<group>"; };
-		C622EA871F1FC5BA0015175A /* PostgresClientKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostgresClientKit.h; sourceTree = "<group>"; };
-		C622EA881F1FC5BA0015175A /* PostgresClientKitPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostgresClientKitPrivate.h; sourceTree = "<group>"; };
-		C622EA8A1F1FC5BA0015175A /* FLXPostgresConnection+DataUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FLXPostgresConnection+DataUtils.h"; sourceTree = "<group>"; };
-		C622EA8B1F1FC5BA0015175A /* FLXPostgresConnection+DataUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FLXPostgresConnection+DataUtils.m"; sourceTree = "<group>"; };
-		C622EA8C1F1FC5BA0015175A /* FLXPostgresDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXPostgresDataCache.h; sourceTree = "<group>"; };
-		C622EA8D1F1FC5BA0015175A /* FLXPostgresDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXPostgresDataCache.m; sourceTree = "<group>"; };
-		C622EA8E1F1FC5BA0015175A /* FLXPostgresDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXPostgresDataObject.h; sourceTree = "<group>"; };
-		C622EA8F1F1FC5BA0015175A /* FLXPostgresDataObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXPostgresDataObject.m; sourceTree = "<group>"; };
-		C622EA901F1FC5BA0015175A /* FLXPostgresDataObjectContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXPostgresDataObjectContext.h; sourceTree = "<group>"; };
-		C622EA911F1FC5BA0015175A /* FLXPostgresDataObjectContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXPostgresDataObjectContext.m; sourceTree = "<group>"; };
-		C622EA921F1FC5BA0015175A /* PostgresDataKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostgresDataKit.h; sourceTree = "<group>"; };
-		C622EA931F1FC5BA0015175A /* PostgresDataKitPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostgresDataKitPrivate.h; sourceTree = "<group>"; };
-		C622EA951F1FC5BA0015175A /* PostgresInstallerMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostgresInstallerMain.m; sourceTree = "<group>"; };
-		C622EA961F1FC5BA0015175A /* PostgresPrefPaneBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostgresPrefPaneBindings.h; sourceTree = "<group>"; };
-		C622EA971F1FC5BA0015175A /* PostgresPrefPaneBindings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostgresPrefPaneBindings.m; sourceTree = "<group>"; };
-		C622EA981F1FC5BA0015175A /* PostgresPrefPaneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostgresPrefPaneController.h; sourceTree = "<group>"; };
-		C622EA991F1FC5BA0015175A /* PostgresPrefPaneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostgresPrefPaneController.m; sourceTree = "<group>"; };
-		C622EA9A1F1FC5BA0015175A /* PostgresPrefPaneShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostgresPrefPaneShared.h; sourceTree = "<group>"; };
-		C622EA9B1F1FC5BA0015175A /* PostgresPrefPaneShared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostgresPrefPaneShared.m; sourceTree = "<group>"; };
-		C622EA9C1F1FC5BA0015175A /* PostgresServerApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostgresServerApp.h; sourceTree = "<group>"; };
-		C622EA9D1F1FC5BA0015175A /* PostgresServerApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostgresServerApp.m; sourceTree = "<group>"; };
-		C622EA9E1F1FC5BA0015175A /* PostgresServerKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostgresServerKeychain.h; sourceTree = "<group>"; };
-		C622EA9F1F1FC5BA0015175A /* PostgresServerKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostgresServerKeychain.m; sourceTree = "<group>"; };
-		C622EAA01F1FC5BA0015175A /* PostgresServerMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostgresServerMain.m; sourceTree = "<group>"; };
-		C622EAA41F1FC5BA0015175A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		C622EAA61F1FC5BA0015175A /* elephant-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "elephant-144.png"; sourceTree = "<group>"; };
-		C622EAA71F1FC5BA0015175A /* elephant-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "elephant-32.png"; sourceTree = "<group>"; };
-		C622EAA81F1FC5BA0015175A /* elephant-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "elephant-512.png"; sourceTree = "<group>"; };
-		C622EAA91F1FC5BA0015175A /* elephant-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "elephant-64.png"; sourceTree = "<group>"; };
-		C622EAAA1F1FC5BA0015175A /* elephant-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "elephant-72.png"; sourceTree = "<group>"; };
-		C622EAAB1F1FC5BA0015175A /* elephant.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = elephant.icns; sourceTree = "<group>"; };
-		C622EAAC1F1FC5BA0015175A /* gear-14x14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear-14x14.png"; sourceTree = "<group>"; };
-		C622EAAE1F1FC5BA0015175A /* database.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = database.tiff; sourceTree = "<group>"; };
-		C622EAAF1F1FC5BA0015175A /* halt.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = halt.tiff; sourceTree = "<group>"; };
-		C622EAB01F1FC5BA0015175A /* info.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = info.tiff; sourceTree = "<group>"; };
-		C622EAB11F1FC5BA0015175A /* network.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = network.tiff; sourceTree = "<group>"; };
-		C622EAB21F1FC5BA0015175A /* preferences.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = preferences.tiff; sourceTree = "<group>"; };
-		C622EAB31F1FC5BA0015175A /* reload.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = reload.tiff; sourceTree = "<group>"; };
-		C622EAB41F1FC5BA0015175A /* start.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = start.tiff; sourceTree = "<group>"; };
-		C622EAB51F1FC5BA0015175A /* stop.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = stop.tiff; sourceTree = "<group>"; };
-		C622EAB61F1FC5BA0015175A /* terminal.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = terminal.tiff; sourceTree = "<group>"; };
-		C622EAB71F1FC5BA0015175A /* user.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = user.tiff; sourceTree = "<group>"; };
-		C622EAB81F1FC5BA0015175A /* logo_w_elephant.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = logo_w_elephant.pdf; sourceTree = "<group>"; };
-		C622EAB91F1FC5BA0015175A /* strapline-200x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "strapline-200x40.png"; sourceTree = "<group>"; };
-		C622EABB1F1FC5BA0015175A /* traffic-green.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "traffic-green.tiff"; sourceTree = "<group>"; };
-		C622EABC1F1FC5BA0015175A /* traffic-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "traffic-grey.png"; sourceTree = "<group>"; };
-		C622EABD1F1FC5BA0015175A /* traffic-orange.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "traffic-orange.tiff"; sourceTree = "<group>"; };
-		C622EABE1F1FC5BA0015175A /* traffic-red.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "traffic-red.tiff"; sourceTree = "<group>"; };
-		C622EAC01F1FC5BA0015175A /* Gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gradient.png; sourceTree = "<group>"; };
-		C622EAC11F1FC5BA0015175A /* ResizeControl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResizeControl.png; sourceTree = "<group>"; };
-		C622EAC61F1FC5BA0015175A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C622EAC71F1FC5BA0015175A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C622EAC91F1FC5BA0015175A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		C622EACA1F1FC5BA0015175A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C622EACB1F1FC5BA0015175A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C622EACC1F1FC5BA0015175A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C622EACE1F1FC5BA0015175A /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
-		C622EACF1F1FC5BA0015175A /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Application.m; sourceTree = "<group>"; };
-		C622EAD01F1FC5BA0015175A /* ConsoleBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleBuffer.h; sourceTree = "<group>"; };
-		C622EAD11F1FC5BA0015175A /* ConsoleBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsoleBuffer.m; sourceTree = "<group>"; };
-		C622EAD21F1FC5BA0015175A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C622EAD31F1FC5BA0015175A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C622EAD41F1FC5BA0015175A /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
-		C622EAD61F1FC5BA0015175A /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
-		C622EAD71F1FC5BA0015175A /* PGSchemaManager.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PGSchemaManager.plist; sourceTree = "<group>"; };
-		C622EAD81F1FC5BA0015175A /* PGSchemaManagerApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSchemaManagerApp.h; sourceTree = "<group>"; };
-		C622EAD91F1FC5BA0015175A /* PGSchemaManagerApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSchemaManagerApp.m; sourceTree = "<group>"; };
-		C622EADA1F1FC5BA0015175A /* tree.schema.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tree.schema.xml; sourceTree = "<group>"; };
-		C622EADC1F1FC5BA0015175A /* AppAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppAbout.h; sourceTree = "<group>"; };
-		C622EADD1F1FC5BA0015175A /* AppAbout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppAbout.m; sourceTree = "<group>"; };
-		C622EADE1F1FC5BA0015175A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C622EADF1F1FC5BA0015175A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C622EAE01F1FC5BA0015175A /* AppPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppPreferences.h; sourceTree = "<group>"; };
-		C622EAE11F1FC5BA0015175A /* AppPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppPreferences.m; sourceTree = "<group>"; };
-		C622EAE21F1FC5BA0015175A /* ConnectionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionsView.xib; sourceTree = "<group>"; };
-		C622EAE31F1FC5BA0015175A /* ConnectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionsViewController.h; sourceTree = "<group>"; };
-		C622EAE41F1FC5BA0015175A /* ConnectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionsViewController.m; sourceTree = "<group>"; };
-		C622EAE51F1FC5BA0015175A /* ConnectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionView.xib; sourceTree = "<group>"; };
-		C622EAE61F1FC5BA0015175A /* ConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionViewController.h; sourceTree = "<group>"; };
-		C622EAE71F1FC5BA0015175A /* ConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionViewController.m; sourceTree = "<group>"; };
-		C622EAE81F1FC5BA0015175A /* DatabaseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatabaseView.xib; sourceTree = "<group>"; };
-		C622EAE91F1FC5BA0015175A /* DatabaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseViewController.h; sourceTree = "<group>"; };
-		C622EAEA1F1FC5BA0015175A /* DatabaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseViewController.m; sourceTree = "<group>"; };
-		C622EAEB1F1FC5BA0015175A /* LogView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogView.xib; sourceTree = "<group>"; };
-		C622EAEC1F1FC5BA0015175A /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
-		C622EAED1F1FC5BA0015175A /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
-		C622EAEE1F1FC5BA0015175A /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		C622EAEF1F1FC5BA0015175A /* NSWindow+ResizeAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+ResizeAdditions.h"; sourceTree = "<group>"; };
-		C622EAF01F1FC5BA0015175A /* NSWindow+ResizeAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+ResizeAdditions.m"; sourceTree = "<group>"; };
-		C622EAF11F1FC5BA0015175A /* PGServer.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PGServer.plist; sourceTree = "<group>"; };
-		C622EAF21F1FC5BA0015175A /* SQL.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = SQL.strings; sourceTree = "<group>"; };
-		C622EAF31F1FC5BA0015175A /* UsersRolesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersRolesView.xib; sourceTree = "<group>"; };
-		C622EAF41F1FC5BA0015175A /* UsersRolesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersRolesViewController.h; sourceTree = "<group>"; };
-		C622EAF51F1FC5BA0015175A /* UsersRolesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersRolesViewController.m; sourceTree = "<group>"; };
-		C622EAF61F1FC5BA0015175A /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C622EAF71F1FC5BA0015175A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		C622EAF91F1FC5BA0015175A /* PGFoundationApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGFoundationApp.h; sourceTree = "<group>"; };
-		C622EAFA1F1FC5BA0015175A /* PGFoundationApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGFoundationApp.m; sourceTree = "<group>"; };
-		C622EAFB1F1FC5BA0015175A /* PGFoundationClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGFoundationClient.h; sourceTree = "<group>"; };
-		C622EAFC1F1FC5BA0015175A /* PGFoundationClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGFoundationClient.m; sourceTree = "<group>"; };
-		C622EAFD1F1FC5BA0015175A /* PGFoundationServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGFoundationServer.h; sourceTree = "<group>"; };
-		C622EAFE1F1FC5BA0015175A /* PGFoundationServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGFoundationServer.m; sourceTree = "<group>"; };
-		C622EAFF1F1FC5BA0015175A /* Terminal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Terminal.h; sourceTree = "<group>"; };
-		C622EB001F1FC5BA0015175A /* Terminal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Terminal.m; sourceTree = "<group>"; };
-		C622EB031F1FC5BA0015175A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C622EB041F1FC5BA0015175A /* PGApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGApplication.h; sourceTree = "<group>"; };
-		C622EB051F1FC5BA0015175A /* PGApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGApplication.m; sourceTree = "<group>"; };
-		C622EB061F1FC5BA0015175A /* PGClient_ios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PGClient_ios.plist; sourceTree = "<group>"; };
-		C622EB071F1FC5BA0015175A /* PGClientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGClientView.h; sourceTree = "<group>"; };
-		C622EB081F1FC5BA0015175A /* PGClientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGClientView.m; sourceTree = "<group>"; };
-		C622EB0A1F1FC5BA0015175A /* PGClientView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PGClientView.xib; sourceTree = "<group>"; };
-		C622EB0D1F1FC5BA0015175A /* NSString+PGNetworkValidationAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PGNetworkValidationAdditions.h"; sourceTree = "<group>"; };
-		C622EB0E1F1FC5BA0015175A /* NSString+PGNetworkValidationAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PGNetworkValidationAdditions.m"; sourceTree = "<group>"; };
-		C622EB0F1F1FC5BA0015175A /* NSString+PrivateAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PrivateAdditions.h"; sourceTree = "<group>"; };
-		C622EB101F1FC5BA0015175A /* NSString+PrivateAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PrivateAdditions.m"; sourceTree = "<group>"; };
-		C622EB111F1FC5BA0015175A /* NSURL+PGAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+PGAdditions.h"; sourceTree = "<group>"; };
-		C622EB121F1FC5BA0015175A /* NSURL+PGAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+PGAdditions.m"; sourceTree = "<group>"; };
-		C622EB131F1FC5BA0015175A /* PGClientKit+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGClientKit+Private.h"; sourceTree = "<group>"; };
-		C622EB141F1FC5BA0015175A /* PGClientKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGClientKit.h; sourceTree = "<group>"; };
-		C622EB151F1FC5BA0015175A /* PGClientKit_ios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PGClientKit_ios.plist; sourceTree = "<group>"; };
-		C622EB161F1FC5BA0015175A /* PGClientKit_mac.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PGClientKit_mac.plist; sourceTree = "<group>"; };
-		C622EB171F1FC5BA0015175A /* PGClientParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGClientParams.h; sourceTree = "<group>"; };
-		C622EB181F1FC5BA0015175A /* PGClientParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGClientParams.m; sourceTree = "<group>"; };
-		C622EB191F1FC5BA0015175A /* PGConnection+Callbacks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGConnection+Callbacks.m"; sourceTree = "<group>"; };
-		C622EB1A1F1FC5BA0015175A /* PGConnection+Cancel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGConnection+Cancel.m"; sourceTree = "<group>"; };
-		C622EB1B1F1FC5BA0015175A /* PGConnection+Connect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGConnection+Connect.m"; sourceTree = "<group>"; };
-		C622EB1C1F1FC5BA0015175A /* PGConnection+Disconnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGConnection+Disconnect.m"; sourceTree = "<group>"; };
-		C622EB1D1F1FC5BA0015175A /* PGConnection+Errors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGConnection+Errors.m"; sourceTree = "<group>"; };
-		C622EB1E1F1FC5BA0015175A /* PGConnection+Execute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGConnection+Execute.m"; sourceTree = "<group>"; };
-		C622EB1F1F1FC5BA0015175A /* PGConnection+Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGConnection+Notifications.m"; sourceTree = "<group>"; };
-		C622EB201F1FC5BA0015175A /* PGConnection+Ping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGConnection+Ping.m"; sourceTree = "<group>"; };
-		C622EB211F1FC5BA0015175A /* PGConnection+Reset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGConnection+Reset.m"; sourceTree = "<group>"; };
-		C622EB221F1FC5BA0015175A /* PGConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGConnection.h; sourceTree = "<group>"; };
-		C622EB231F1FC5BA0015175A /* PGConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGConnection.m; sourceTree = "<group>"; };
-		C622EB241F1FC5BA0015175A /* PGConnectionPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGConnectionPool.h; sourceTree = "<group>"; };
-		C622EB251F1FC5BA0015175A /* PGConnectionPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGConnectionPool.m; sourceTree = "<group>"; };
-		C622EB261F1FC5BA0015175A /* PGConverters+Data2Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGConverters+Data2Object.m"; sourceTree = "<group>"; };
-		C622EB271F1FC5BA0015175A /* PGConverters+Object2Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGConverters+Object2Data.m"; sourceTree = "<group>"; };
-		C622EB281F1FC5BA0015175A /* PGConverters+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGConverters+Private.h"; sourceTree = "<group>"; };
-		C622EB291F1FC5BA0015175A /* PGConverters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGConverters.h; sourceTree = "<group>"; };
-		C622EB2A1F1FC5BA0015175A /* PGPasswordStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPasswordStore.h; sourceTree = "<group>"; };
-		C622EB2B1F1FC5BA0015175A /* PGPasswordStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPasswordStore.m; sourceTree = "<group>"; };
-		C622EB2C1F1FC5BA0015175A /* PGQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGQuery.h; sourceTree = "<group>"; };
-		C622EB2D1F1FC5BA0015175A /* PGQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGQuery.m; sourceTree = "<group>"; };
-		C622EB2E1F1FC5BA0015175A /* PGQueryDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGQueryDatabase.h; sourceTree = "<group>"; };
-		C622EB2F1F1FC5BA0015175A /* PGQueryDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGQueryDatabase.m; sourceTree = "<group>"; };
-		C622EB301F1FC5BA0015175A /* PGQueryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGQueryObject.h; sourceTree = "<group>"; };
-		C622EB311F1FC5BA0015175A /* PGQueryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGQueryObject.m; sourceTree = "<group>"; };
-		C622EB321F1FC5BA0015175A /* PGQueryPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGQueryPredicate.h; sourceTree = "<group>"; };
-		C622EB331F1FC5BA0015175A /* PGQueryPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGQueryPredicate.m; sourceTree = "<group>"; };
-		C622EB341F1FC5BA0015175A /* PGQueryRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGQueryRole.h; sourceTree = "<group>"; };
-		C622EB351F1FC5BA0015175A /* PGQueryRole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGQueryRole.m; sourceTree = "<group>"; };
-		C622EB361F1FC5BA0015175A /* PGQuerySchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGQuerySchema.h; sourceTree = "<group>"; };
-		C622EB371F1FC5BA0015175A /* PGQuerySchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGQuerySchema.m; sourceTree = "<group>"; };
-		C622EB381F1FC5BA0015175A /* PGQuerySelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGQuerySelect.h; sourceTree = "<group>"; };
-		C622EB391F1FC5BA0015175A /* PGQuerySelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGQuerySelect.m; sourceTree = "<group>"; };
-		C622EB3A1F1FC5BA0015175A /* PGQuerySource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGQuerySource.h; sourceTree = "<group>"; };
-		C622EB3B1F1FC5BA0015175A /* PGQuerySource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGQuerySource.m; sourceTree = "<group>"; };
-		C622EB3C1F1FC5BA0015175A /* PGQueryTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGQueryTableView.h; sourceTree = "<group>"; };
-		C622EB3D1F1FC5BA0015175A /* PGQueryTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGQueryTableView.m; sourceTree = "<group>"; };
-		C622EB3E1F1FC5BA0015175A /* PGResult+TextTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGResult+TextTable.h"; sourceTree = "<group>"; };
-		C622EB3F1F1FC5BA0015175A /* PGResult+TextTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGResult+TextTable.m"; sourceTree = "<group>"; };
-		C622EB401F1FC5BA0015175A /* PGResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGResult.h; sourceTree = "<group>"; };
-		C622EB411F1FC5BA0015175A /* PGResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGResult.m; sourceTree = "<group>"; };
-		C622EB431F1FC5BA0015175A /* PGConnectionWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PGConnectionWindow.xib; sourceTree = "<group>"; };
-		C622EB441F1FC5BA0015175A /* PGConnectionWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGConnectionWindowController.h; sourceTree = "<group>"; };
-		C622EB451F1FC5BA0015175A /* PGConnectionWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGConnectionWindowController.m; sourceTree = "<group>"; };
-		C622EB461F1FC5BA0015175A /* PGConnectionWindowFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGConnectionWindowFormatter.h; sourceTree = "<group>"; };
-		C622EB471F1FC5BA0015175A /* PGConnectionWindowFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGConnectionWindowFormatter.m; sourceTree = "<group>"; };
-		C622EB481F1FC5BA0015175A /* PGConsoleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PGConsoleView.xib; sourceTree = "<group>"; };
-		C622EB491F1FC5BA0015175A /* PGConsoleViewBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGConsoleViewBuffer.h; sourceTree = "<group>"; };
-		C622EB4A1F1FC5BA0015175A /* PGConsoleViewBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGConsoleViewBuffer.m; sourceTree = "<group>"; };
-		C622EB4B1F1FC5BA0015175A /* PGConsoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGConsoleViewController.h; sourceTree = "<group>"; };
-		C622EB4C1F1FC5BA0015175A /* PGConsoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGConsoleViewController.m; sourceTree = "<group>"; };
-		C622EB4D1F1FC5BA0015175A /* PGControlsKit+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGControlsKit+Private.h"; sourceTree = "<group>"; };
-		C622EB4E1F1FC5BA0015175A /* PGControlsKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGControlsKit.h; sourceTree = "<group>"; };
-		C622EB4F1F1FC5BA0015175A /* PGControlsKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PGControlsKit.plist; sourceTree = "<group>"; };
-		C622EB501F1FC5BA0015175A /* PGDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PGDialog.xib; sourceTree = "<group>"; };
-		C622EB511F1FC5BA0015175A /* PGDialogBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDialogBackgroundView.h; sourceTree = "<group>"; };
-		C622EB521F1FC5BA0015175A /* PGDialogBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDialogBackgroundView.m; sourceTree = "<group>"; };
-		C622EB531F1FC5BA0015175A /* PGDialogCreateDatabaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDialogCreateDatabaseView.h; sourceTree = "<group>"; };
-		C622EB541F1FC5BA0015175A /* PGDialogCreateDatabaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDialogCreateDatabaseView.m; sourceTree = "<group>"; };
-		C622EB551F1FC5BA0015175A /* PGDialogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDialogView.h; sourceTree = "<group>"; };
-		C622EB561F1FC5BA0015175A /* PGDialogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDialogView.m; sourceTree = "<group>"; };
-		C622EB571F1FC5BA0015175A /* PGDialogWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDialogWindow.h; sourceTree = "<group>"; };
-		C622EB581F1FC5BA0015175A /* PGDialogWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDialogWindow.m; sourceTree = "<group>"; };
-		C622EB591F1FC5BA0015175A /* PGHelpTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGHelpTextView.h; sourceTree = "<group>"; };
-		C622EB5A1F1FC5BA0015175A /* PGHelpTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGHelpTextView.m; sourceTree = "<group>"; };
-		C622EB5B1F1FC5BA0015175A /* PGHelpWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PGHelpWindow.xib; sourceTree = "<group>"; };
-		C622EB5C1F1FC5BA0015175A /* PGHelpWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGHelpWindowController.h; sourceTree = "<group>"; };
-		C622EB5D1F1FC5BA0015175A /* PGHelpWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGHelpWindowController.m; sourceTree = "<group>"; };
-		C622EB5E1F1FC5BA0015175A /* PGOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGOutlineView.h; sourceTree = "<group>"; };
-		C622EB5F1F1FC5BA0015175A /* PGOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGOutlineView.m; sourceTree = "<group>"; };
-		C622EB601F1FC5BA0015175A /* PGSourceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PGSourceView.xib; sourceTree = "<group>"; };
-		C622EB611F1FC5BA0015175A /* PGSourceViewConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSourceViewConnection.h; sourceTree = "<group>"; };
-		C622EB621F1FC5BA0015175A /* PGSourceViewConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSourceViewConnection.m; sourceTree = "<group>"; };
-		C622EB631F1FC5BA0015175A /* PGSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSourceViewController.h; sourceTree = "<group>"; };
-		C622EB641F1FC5BA0015175A /* PGSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSourceViewController.m; sourceTree = "<group>"; };
-		C622EB651F1FC5BA0015175A /* PGSourceViewHeading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSourceViewHeading.h; sourceTree = "<group>"; };
-		C622EB661F1FC5BA0015175A /* PGSourceViewHeading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSourceViewHeading.m; sourceTree = "<group>"; };
-		C622EB671F1FC5BA0015175A /* PGSourceViewNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSourceViewNode.h; sourceTree = "<group>"; };
-		C622EB681F1FC5BA0015175A /* PGSourceViewNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSourceViewNode.m; sourceTree = "<group>"; };
-		C622EB691F1FC5BA0015175A /* PGSourceViewTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSourceViewTree.h; sourceTree = "<group>"; };
-		C622EB6A1F1FC5BA0015175A /* PGSourceViewTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSourceViewTree.m; sourceTree = "<group>"; };
-		C622EB6B1F1FC5BA0015175A /* PGSplitView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PGSplitView.xib; sourceTree = "<group>"; };
-		C622EB6C1F1FC5BA0015175A /* PGSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSplitViewController.h; sourceTree = "<group>"; };
-		C622EB6D1F1FC5BA0015175A /* PGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSplitViewController.m; sourceTree = "<group>"; };
-		C622EB6E1F1FC5BA0015175A /* PGTabView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PGTabView.xib; sourceTree = "<group>"; };
-		C622EB6F1F1FC5BA0015175A /* PGTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGTabViewController.h; sourceTree = "<group>"; };
-		C622EB701F1FC5BA0015175A /* PGTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGTabViewController.m; sourceTree = "<group>"; };
-		C622EB711F1FC5BA0015175A /* PGTextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGTextFieldView.h; sourceTree = "<group>"; };
-		C622EB721F1FC5BA0015175A /* PGTextFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGTextFieldView.m; sourceTree = "<group>"; };
-		C622EB741F1FC5BA0015175A /* PGCSVImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGCSVImporter.h; sourceTree = "<group>"; };
-		C622EB751F1FC5BA0015175A /* PGCSVImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGCSVImporter.m; sourceTree = "<group>"; };
-		C622EB761F1FC5BA0015175A /* PGDataKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDataKit.h; sourceTree = "<group>"; };
-		C622EB771F1FC5BA0015175A /* PGDataKit_mac.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PGDataKit_mac.plist; sourceTree = "<group>"; };
-		C622EB781F1FC5BA0015175A /* PGTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGTableModel.h; sourceTree = "<group>"; };
-		C622EB791F1FC5BA0015175A /* PGTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGTableModel.m; sourceTree = "<group>"; };
-		C622EB7B1F1FC5BA0015175A /* pgschema.base.schema.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pgschema.base.schema.xml; sourceTree = "<group>"; };
-		C622EB7C1F1FC5BA0015175A /* pgschema.dtd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pgschema.dtd; sourceTree = "<group>"; };
-		C622EB7D1F1FC5BA0015175A /* PGSchemaKit+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGSchemaKit+Private.h"; sourceTree = "<group>"; };
-		C622EB7E1F1FC5BA0015175A /* PGSchemaKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSchemaKit.h; sourceTree = "<group>"; };
-		C622EB7F1F1FC5BA0015175A /* PGSchemaKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PGSchemaKit.plist; sourceTree = "<group>"; };
-		C622EB801F1FC5BA0015175A /* PGSchemaKitSQL.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = PGSchemaKitSQL.strings; sourceTree = "<group>"; };
-		C622EB811F1FC5BA0015175A /* PGSchemaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSchemaManager.h; sourceTree = "<group>"; };
-		C622EB821F1FC5BA0015175A /* PGSchemaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSchemaManager.m; sourceTree = "<group>"; };
-		C622EB831F1FC5BA0015175A /* PGSchemaProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSchemaProduct.h; sourceTree = "<group>"; };
-		C622EB841F1FC5BA0015175A /* PGSchemaProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSchemaProduct.m; sourceTree = "<group>"; };
-		C622EB851F1FC5BA0015175A /* PGSchemaProductNV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSchemaProductNV.h; sourceTree = "<group>"; };
-		C622EB861F1FC5BA0015175A /* PGSchemaProductNV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSchemaProductNV.m; sourceTree = "<group>"; };
-		C622EB871F1FC5BA0015175A /* PGSchemaProductOp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSchemaProductOp.h; sourceTree = "<group>"; };
-		C622EB881F1FC5BA0015175A /* PGSchemaProductOp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSchemaProductOp.m; sourceTree = "<group>"; };
-		C622EB891F1FC5BA0015175A /* PGSchemaProductOpTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSchemaProductOpTable.h; sourceTree = "<group>"; };
-		C622EB8A1F1FC5BA0015175A /* PGSchemaProductOpTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSchemaProductOpTable.m; sourceTree = "<group>"; };
-		C622EB8C1F1FC5BA0015175A /* PGServer+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGServer+Private.h"; sourceTree = "<group>"; };
-		C622EB8D1F1FC5BA0015175A /* PGServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGServer.h; sourceTree = "<group>"; };
-		C622EB8E1F1FC5BA0015175A /* PGServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGServer.m; sourceTree = "<group>"; };
-		C622EB8F1F1FC5BA0015175A /* PGServerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGServerKit.h; sourceTree = "<group>"; };
-		C622EB901F1FC5BA0015175A /* PGServerKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PGServerKit.plist; sourceTree = "<group>"; };
-		C622EB931F1FC5BA0015175A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C622EB941F1FC5BA0015175A /* NSString_PGNetworkValidationAdditions_tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_PGNetworkValidationAdditions_tests.m; sourceTree = "<group>"; };
-		C622EB951F1FC5BA0015175A /* NSURL_PGAdditions_tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURL_PGAdditions_tests.m; sourceTree = "<group>"; };
-		C622EB961F1FC5BA0015175A /* PGClientKit_tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGClientKit_tests.m; sourceTree = "<group>"; };
-		C622EB971F1FC5BA0015175A /* PGConnection_tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGConnection_tests.m; sourceTree = "<group>"; };
-		C622EB981F1FC5BA0015175A /* PGQuery_tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGQuery_tests.m; sourceTree = "<group>"; };
-		C622EB991F1FC5BA0015175A /* type_tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = type_tests.m; sourceTree = "<group>"; };
-		C622EB9B1F1FC5BA0015175A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C622EB9C1F1FC5BA0015175A /* PGControlsKit_testcases.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGControlsKit_testcases.m; sourceTree = "<group>"; };
-		C622EB9D1F1FC5BA0015175A /* PGFoundationServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGFoundationServer.h; sourceTree = "<group>"; };
-		C622EB9E1F1FC5BA0015175A /* PGFoundationServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGFoundationServer.m; sourceTree = "<group>"; };
-		C622EBA01F1FC5BA0015175A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C622EBA11F1FC5BA0015175A /* PGServerKit_testcases.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGServerKit_testcases.m; sourceTree = "<group>"; };
-		C622EBA21F1FC5BA0015175A /* PGUnitTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGUnitTester.h; sourceTree = "<group>"; };
-		C622EBA31F1FC5BA0015175A /* PGUnitTester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGUnitTester.m; sourceTree = "<group>"; };
 		C625B2711F1CFBAA0005EB9D /* PGClientKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PGClientKit.framework; path = crawler_datasheet/library/PGClientKit.framework; sourceTree = "<group>"; };
-		C625B2731F1CFC320005EB9D /* PGFoundationClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGFoundationClient.h; path = "../../../../../private/tmp/volatile_hd/postgresql-kit-dev/src/Apps/Foundation/PGFoundationClient.h"; sourceTree = "<group>"; };
-		C625B2741F1CFC320005EB9D /* PGFoundationClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGFoundationClient.m; path = "../../../../../private/tmp/volatile_hd/postgresql-kit-dev/src/Apps/Foundation/PGFoundationClient.m"; sourceTree = "<group>"; };
 		C632868B1F14C60100A19010 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
 		C632868C1F14C60100A19010 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
 		C632868D1F14C60100A19010 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
@@ -431,642 +89,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C622EA201F1FC5BA0015175A /* postgresql-kit-master */ = {
-			isa = PBXGroup;
-			children = (
-				C622EA211F1FC5BA0015175A /* .gitignore */,
-				C622EA221F1FC5BA0015175A /* doc */,
-				C622EA291F1FC5BA0015175A /* etc */,
-				C622EA381F1FC5BA0015175A /* old */,
-				C622EAA41F1FC5BA0015175A /* README.md */,
-				C622EAA51F1FC5BA0015175A /* resources */,
-				C622EAC21F1FC5BA0015175A /* src */,
-			);
-			name = "postgresql-kit-master";
-			path = "../../postgresql-kit-master";
-			sourceTree = "<group>";
-		};
-		C622EA221F1FC5BA0015175A /* doc */ = {
-			isa = PBXGroup;
-			children = (
-				C622EA231F1FC5BA0015175A /* NOTICE.md */,
-				C622EA241F1FC5BA0015175A /* PGClient Help */,
-				C622EA281F1FC5BA0015175A /* Version.plist */,
-			);
-			path = doc;
-			sourceTree = "<group>";
-		};
-		C622EA241F1FC5BA0015175A /* PGClient Help */ = {
-			isa = PBXGroup;
-			children = (
-				C622EA251F1FC5BA0015175A /* Databases.md */,
-				C622EA261F1FC5BA0015175A /* Introduction.md */,
-				C622EA271F1FC5BA0015175A /* Queries.md */,
-			);
-			path = "PGClient Help";
-			sourceTree = "<group>";
-		};
-		C622EA291F1FC5BA0015175A /* etc */ = {
-			isa = PBXGroup;
-			children = (
-				C622EA2A1F1FC5BA0015175A /* build-frameworks.sh */,
-				C622EA2B1F1FC5BA0015175A /* build-iosapps.sh */,
-				C622EA2C1F1FC5BA0015175A /* build-macapps.sh */,
-				C622EA2D1F1FC5BA0015175A /* lipo.sh */,
-				C622EA2E1F1FC5BA0015175A /* make-headerdoc.sh */,
-				C622EA2F1F1FC5BA0015175A /* make-libpq.sh */,
-				C622EA301F1FC5BA0015175A /* make-libpq.sh.orig */,
-				C622EA311F1FC5BA0015175A /* make-openssl.sh */,
-				C622EA321F1FC5BA0015175A /* make-openssl.sh.orig */,
-				C622EA331F1FC5BA0015175A /* make-postgresql.sh */,
-				C622EA341F1FC5BA0015175A /* README.md */,
-				C622EA351F1FC5BA0015175A /* reversion-plist.sh */,
-				C622EA361F1FC5BA0015175A /* reversion.sh */,
-				C622EA371F1FC5BA0015175A /* test-frameworks.sh */,
-			);
-			path = etc;
-			sourceTree = "<group>";
-		};
-		C622EA381F1FC5BA0015175A /* old */ = {
-			isa = PBXGroup;
-			children = (
-				C622EA391F1FC5BA0015175A /* PGClient */,
-				C622EA4E1F1FC5BA0015175A /* PGConnection-old.h */,
-				C622EA4F1F1FC5BA0015175A /* PGConnection-old.m */,
-				C622EA501F1FC5BA0015175A /* PGConsoleView */,
-				C622EA581F1FC5BA0015175A /* PGServer */,
-				C622EA621F1FC5BA0015175A /* PostgresClientKit */,
-				C622EA891F1FC5BA0015175A /* PostgresDataKit */,
-				C622EA941F1FC5BA0015175A /* PostgresPrefPane */,
-			);
-			path = old;
-			sourceTree = "<group>";
-		};
-		C622EA391F1FC5BA0015175A /* PGClient */ = {
-			isa = PBXGroup;
-			children = (
-				C622EA3A1F1FC5BA0015175A /* LocalConnectionWindow.xib */,
-				C622EA3B1F1FC5BA0015175A /* LocalConnectionWindowController.h */,
-				C622EA3C1F1FC5BA0015175A /* LocalConnectionWindowController.m */,
-				C622EA3D1F1FC5BA0015175A /* MainMenu.xib */,
-				C622EA3E1F1FC5BA0015175A /* PGClient.plist */,
-				C622EA3F1F1FC5BA0015175A /* PGClientApplication.h */,
-				C622EA401F1FC5BA0015175A /* PGClientApplication.m */,
-				C622EA411F1FC5BA0015175A /* PGConnectionController.h */,
-				C622EA421F1FC5BA0015175A /* PGConnectionController.m */,
-				C622EA431F1FC5BA0015175A /* PGSidebarDataSource.h */,
-				C622EA441F1FC5BA0015175A /* PGSidebarDataSource.m */,
-				C622EA451F1FC5BA0015175A /* PGSidebarNode.h */,
-				C622EA461F1FC5BA0015175A /* PGSidebarNode.m */,
-				C622EA471F1FC5BA0015175A /* PGSidebarViewController.h */,
-				C622EA481F1FC5BA0015175A /* PGSidebarViewController.m */,
-				C622EA491F1FC5BA0015175A /* PGTabViewController.h */,
-				C622EA4A1F1FC5BA0015175A /* PGTabViewController.m */,
-				C622EA4B1F1FC5BA0015175A /* RemoteConnectionWindow.xib */,
-				C622EA4C1F1FC5BA0015175A /* RemoteConnectionWindowController.h */,
-				C622EA4D1F1FC5BA0015175A /* RemoteConnectionWindowController.m */,
-			);
-			path = PGClient;
-			sourceTree = "<group>";
-		};
-		C622EA501F1FC5BA0015175A /* PGConsoleView */ = {
-			isa = PBXGroup;
-			children = (
-				C622EA511F1FC5BA0015175A /* PGConsoleView.h */,
-				C622EA521F1FC5BA0015175A /* PGConsoleView.m */,
-				C622EA531F1FC5BA0015175A /* PGConsoleView.xib */,
-				C622EA541F1FC5BA0015175A /* PGConsoleViewImpl.h */,
-				C622EA551F1FC5BA0015175A /* PGConsoleViewImpl.m */,
-				C622EA561F1FC5BA0015175A /* PGGutterView.h */,
-				C622EA571F1FC5BA0015175A /* PGGutterView.m */,
-			);
-			path = PGConsoleView;
-			sourceTree = "<group>";
-		};
-		C622EA581F1FC5BA0015175A /* PGServer */ = {
-			isa = PBXGroup;
-			children = (
-				C622EA591F1FC5BA0015175A /* ConfigurationPrefs.h */,
-				C622EA5A1F1FC5BA0015175A /* ConfigurationPrefs.m */,
-				C622EA5B1F1FC5BA0015175A /* ConnectionPrefs.h */,
-				C622EA5C1F1FC5BA0015175A /* ConnectionPrefs.m */,
-				C622EA5D1F1FC5BA0015175A /* Controller.h */,
-				C622EA5E1F1FC5BA0015175A /* Controller.m */,
-				C622EA5F1F1FC5BA0015175A /* ControllerDelegate.h */,
-				C622EA601F1FC5BA0015175A /* PGServer-Info.plist */,
-				C622EA611F1FC5BA0015175A /* PGServer.xib */,
-			);
-			path = PGServer;
-			sourceTree = "<group>";
-		};
-		C622EA621F1FC5BA0015175A /* PostgresClientKit */ = {
-			isa = PBXGroup;
-			children = (
-				C622EA631F1FC5BA0015175A /* FLXGeometry.h */,
-				C622EA641F1FC5BA0015175A /* FLXGeometry.m */,
-				C622EA651F1FC5BA0015175A /* FLXMacAddr.h */,
-				C622EA661F1FC5BA0015175A /* FLXMacAddr.m */,
-				C622EA671F1FC5BA0015175A /* FLXPostgresArray.h */,
-				C622EA681F1FC5BA0015175A /* FLXPostgresArray.m */,
-				C622EA691F1FC5BA0015175A /* FLXPostgresConnection+Utils.h */,
-				C622EA6A1F1FC5BA0015175A /* FLXPostgresConnection+Utils.m */,
-				C622EA6B1F1FC5BA0015175A /* FLXPostgresConnection.h */,
-				C622EA6C1F1FC5BA0015175A /* FLXPostgresConnection.m */,
-				C622EA6D1F1FC5BA0015175A /* FLXPostgresException.h */,
-				C622EA6E1F1FC5BA0015175A /* FLXPostgresException.m */,
-				C622EA6F1F1FC5BA0015175A /* FLXPostgresResult.h */,
-				C622EA701F1FC5BA0015175A /* FLXPostgresResult.m */,
-				C622EA711F1FC5BA0015175A /* FLXPostgresStatement.h */,
-				C622EA721F1FC5BA0015175A /* FLXPostgresStatement.m */,
-				C622EA731F1FC5BA0015175A /* FLXPostgresTypeNSNumber.h */,
-				C622EA741F1FC5BA0015175A /* FLXPostgresTypeNSNumber.m */,
-				C622EA751F1FC5BA0015175A /* FLXPostgresTypeNSString.h */,
-				C622EA761F1FC5BA0015175A /* FLXPostgresTypeNSString.m */,
-				C622EA771F1FC5BA0015175A /* FLXPostgresTypes+Array.h */,
-				C622EA781F1FC5BA0015175A /* FLXPostgresTypes+Array.m */,
-				C622EA791F1FC5BA0015175A /* FLXPostgresTypes+DateTime.h */,
-				C622EA7A1F1FC5BA0015175A /* FLXPostgresTypes+DateTime.m */,
-				C622EA7B1F1FC5BA0015175A /* FLXPostgresTypes+Geometry.h */,
-				C622EA7C1F1FC5BA0015175A /* FLXPostgresTypes+Geometry.m */,
-				C622EA7D1F1FC5BA0015175A /* FLXPostgresTypes+NetAddr.h */,
-				C622EA7E1F1FC5BA0015175A /* FLXPostgresTypes+NetAddr.m */,
-				C622EA7F1F1FC5BA0015175A /* FLXPostgresTypes+NSData.h */,
-				C622EA801F1FC5BA0015175A /* FLXPostgresTypes+NSData.m */,
-				C622EA811F1FC5BA0015175A /* FLXPostgresTypes+NSNumber.h */,
-				C622EA821F1FC5BA0015175A /* FLXPostgresTypes+NSNumber.m */,
-				C622EA831F1FC5BA0015175A /* FLXPostgresTypes.h */,
-				C622EA841F1FC5BA0015175A /* FLXPostgresTypes.m */,
-				C622EA851F1FC5BA0015175A /* FLXTimeInterval.h */,
-				C622EA861F1FC5BA0015175A /* FLXTimeInterval.m */,
-				C622EA871F1FC5BA0015175A /* PostgresClientKit.h */,
-				C622EA881F1FC5BA0015175A /* PostgresClientKitPrivate.h */,
-			);
-			path = PostgresClientKit;
-			sourceTree = "<group>";
-		};
-		C622EA891F1FC5BA0015175A /* PostgresDataKit */ = {
-			isa = PBXGroup;
-			children = (
-				C622EA8A1F1FC5BA0015175A /* FLXPostgresConnection+DataUtils.h */,
-				C622EA8B1F1FC5BA0015175A /* FLXPostgresConnection+DataUtils.m */,
-				C622EA8C1F1FC5BA0015175A /* FLXPostgresDataCache.h */,
-				C622EA8D1F1FC5BA0015175A /* FLXPostgresDataCache.m */,
-				C622EA8E1F1FC5BA0015175A /* FLXPostgresDataObject.h */,
-				C622EA8F1F1FC5BA0015175A /* FLXPostgresDataObject.m */,
-				C622EA901F1FC5BA0015175A /* FLXPostgresDataObjectContext.h */,
-				C622EA911F1FC5BA0015175A /* FLXPostgresDataObjectContext.m */,
-				C622EA921F1FC5BA0015175A /* PostgresDataKit.h */,
-				C622EA931F1FC5BA0015175A /* PostgresDataKitPrivate.h */,
-			);
-			path = PostgresDataKit;
-			sourceTree = "<group>";
-		};
-		C622EA941F1FC5BA0015175A /* PostgresPrefPane */ = {
-			isa = PBXGroup;
-			children = (
-				C622EA951F1FC5BA0015175A /* PostgresInstallerMain.m */,
-				C622EA961F1FC5BA0015175A /* PostgresPrefPaneBindings.h */,
-				C622EA971F1FC5BA0015175A /* PostgresPrefPaneBindings.m */,
-				C622EA981F1FC5BA0015175A /* PostgresPrefPaneController.h */,
-				C622EA991F1FC5BA0015175A /* PostgresPrefPaneController.m */,
-				C622EA9A1F1FC5BA0015175A /* PostgresPrefPaneShared.h */,
-				C622EA9B1F1FC5BA0015175A /* PostgresPrefPaneShared.m */,
-				C622EA9C1F1FC5BA0015175A /* PostgresServerApp.h */,
-				C622EA9D1F1FC5BA0015175A /* PostgresServerApp.m */,
-				C622EA9E1F1FC5BA0015175A /* PostgresServerKeychain.h */,
-				C622EA9F1F1FC5BA0015175A /* PostgresServerKeychain.m */,
-				C622EAA01F1FC5BA0015175A /* PostgresServerMain.m */,
-			);
-			path = PostgresPrefPane;
-			sourceTree = "<group>";
-		};
-		C622EAA51F1FC5BA0015175A /* resources */ = {
-			isa = PBXGroup;
-			children = (
-				C622EAA61F1FC5BA0015175A /* elephant-144.png */,
-				C622EAA71F1FC5BA0015175A /* elephant-32.png */,
-				C622EAA81F1FC5BA0015175A /* elephant-512.png */,
-				C622EAA91F1FC5BA0015175A /* elephant-64.png */,
-				C622EAAA1F1FC5BA0015175A /* elephant-72.png */,
-				C622EAAB1F1FC5BA0015175A /* elephant.icns */,
-				C622EAAC1F1FC5BA0015175A /* gear-14x14.png */,
-				C622EAAD1F1FC5BA0015175A /* icons */,
-				C622EAB81F1FC5BA0015175A /* logo_w_elephant.pdf */,
-				C622EAB91F1FC5BA0015175A /* strapline-200x40.png */,
-				C622EABA1F1FC5BA0015175A /* traffic */,
-				C622EABF1F1FC5BA0015175A /* ui */,
-			);
-			path = resources;
-			sourceTree = "<group>";
-		};
-		C622EAAD1F1FC5BA0015175A /* icons */ = {
-			isa = PBXGroup;
-			children = (
-				C622EAAE1F1FC5BA0015175A /* database.tiff */,
-				C622EAAF1F1FC5BA0015175A /* halt.tiff */,
-				C622EAB01F1FC5BA0015175A /* info.tiff */,
-				C622EAB11F1FC5BA0015175A /* network.tiff */,
-				C622EAB21F1FC5BA0015175A /* preferences.tiff */,
-				C622EAB31F1FC5BA0015175A /* reload.tiff */,
-				C622EAB41F1FC5BA0015175A /* start.tiff */,
-				C622EAB51F1FC5BA0015175A /* stop.tiff */,
-				C622EAB61F1FC5BA0015175A /* terminal.tiff */,
-				C622EAB71F1FC5BA0015175A /* user.tiff */,
-			);
-			path = icons;
-			sourceTree = "<group>";
-		};
-		C622EABA1F1FC5BA0015175A /* traffic */ = {
-			isa = PBXGroup;
-			children = (
-				C622EABB1F1FC5BA0015175A /* traffic-green.tiff */,
-				C622EABC1F1FC5BA0015175A /* traffic-grey.png */,
-				C622EABD1F1FC5BA0015175A /* traffic-orange.tiff */,
-				C622EABE1F1FC5BA0015175A /* traffic-red.tiff */,
-			);
-			path = traffic;
-			sourceTree = "<group>";
-		};
-		C622EABF1F1FC5BA0015175A /* ui */ = {
-			isa = PBXGroup;
-			children = (
-				C622EAC01F1FC5BA0015175A /* Gradient.png */,
-				C622EAC11F1FC5BA0015175A /* ResizeControl.png */,
-			);
-			path = ui;
-			sourceTree = "<group>";
-		};
-		C622EAC21F1FC5BA0015175A /* src */ = {
-			isa = PBXGroup;
-			children = (
-				C622EAC31F1FC5BA0015175A /* Apps */,
-				C622EB0B1F1FC5BA0015175A /* Frameworks */,
-				C622EB911F1FC5BA0015175A /* UnitTests */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		C622EAC31F1FC5BA0015175A /* Apps */ = {
-			isa = PBXGroup;
-			children = (
-				C622EAC41F1FC5BA0015175A /* Cocoa */,
-				C622EAF81F1FC5BA0015175A /* Foundation */,
-				C622EB011F1FC5BA0015175A /* iOS */,
-			);
-			path = Apps;
-			sourceTree = "<group>";
-		};
-		C622EAC41F1FC5BA0015175A /* Cocoa */ = {
-			isa = PBXGroup;
-			children = (
-				C622EAC51F1FC5BA0015175A /* ControlsTest */,
-				C622EACC1F1FC5BA0015175A /* main.m */,
-				C622EACD1F1FC5BA0015175A /* PGClient */,
-				C622EAD51F1FC5BA0015175A /* PGSchemaManager */,
-				C622EADB1F1FC5BA0015175A /* PGServer */,
-			);
-			path = Cocoa;
-			sourceTree = "<group>";
-		};
-		C622EAC51F1FC5BA0015175A /* ControlsTest */ = {
-			isa = PBXGroup;
-			children = (
-				C622EAC61F1FC5BA0015175A /* AppDelegate.h */,
-				C622EAC71F1FC5BA0015175A /* AppDelegate.m */,
-				C622EAC81F1FC5BA0015175A /* MainMenu.xib */,
-				C622EACA1F1FC5BA0015175A /* Images.xcassets */,
-				C622EACB1F1FC5BA0015175A /* Info.plist */,
-			);
-			path = ControlsTest;
-			sourceTree = "<group>";
-		};
-		C622EACD1F1FC5BA0015175A /* PGClient */ = {
-			isa = PBXGroup;
-			children = (
-				C622EACE1F1FC5BA0015175A /* Application.h */,
-				C622EACF1F1FC5BA0015175A /* Application.m */,
-				C622EAD01F1FC5BA0015175A /* ConsoleBuffer.h */,
-				C622EAD11F1FC5BA0015175A /* ConsoleBuffer.m */,
-				C622EAD21F1FC5BA0015175A /* Images.xcassets */,
-				C622EAD31F1FC5BA0015175A /* Info.plist */,
-				C622EAD41F1FC5BA0015175A /* MainMenu.xib */,
-			);
-			path = PGClient;
-			sourceTree = "<group>";
-		};
-		C622EAD51F1FC5BA0015175A /* PGSchemaManager */ = {
-			isa = PBXGroup;
-			children = (
-				C622EAD61F1FC5BA0015175A /* MainMenu.xib */,
-				C622EAD71F1FC5BA0015175A /* PGSchemaManager.plist */,
-				C622EAD81F1FC5BA0015175A /* PGSchemaManagerApp.h */,
-				C622EAD91F1FC5BA0015175A /* PGSchemaManagerApp.m */,
-				C622EADA1F1FC5BA0015175A /* tree.schema.xml */,
-			);
-			path = PGSchemaManager;
-			sourceTree = "<group>";
-		};
-		C622EADB1F1FC5BA0015175A /* PGServer */ = {
-			isa = PBXGroup;
-			children = (
-				C622EADC1F1FC5BA0015175A /* AppAbout.h */,
-				C622EADD1F1FC5BA0015175A /* AppAbout.m */,
-				C622EADE1F1FC5BA0015175A /* AppDelegate.h */,
-				C622EADF1F1FC5BA0015175A /* AppDelegate.m */,
-				C622EAE01F1FC5BA0015175A /* AppPreferences.h */,
-				C622EAE11F1FC5BA0015175A /* AppPreferences.m */,
-				C622EAE21F1FC5BA0015175A /* ConnectionsView.xib */,
-				C622EAE31F1FC5BA0015175A /* ConnectionsViewController.h */,
-				C622EAE41F1FC5BA0015175A /* ConnectionsViewController.m */,
-				C622EAE51F1FC5BA0015175A /* ConnectionView.xib */,
-				C622EAE61F1FC5BA0015175A /* ConnectionViewController.h */,
-				C622EAE71F1FC5BA0015175A /* ConnectionViewController.m */,
-				C622EAE81F1FC5BA0015175A /* DatabaseView.xib */,
-				C622EAE91F1FC5BA0015175A /* DatabaseViewController.h */,
-				C622EAEA1F1FC5BA0015175A /* DatabaseViewController.m */,
-				C622EAEB1F1FC5BA0015175A /* LogView.xib */,
-				C622EAEC1F1FC5BA0015175A /* LogViewController.h */,
-				C622EAED1F1FC5BA0015175A /* LogViewController.m */,
-				C622EAEE1F1FC5BA0015175A /* MainWindow.xib */,
-				C622EAEF1F1FC5BA0015175A /* NSWindow+ResizeAdditions.h */,
-				C622EAF01F1FC5BA0015175A /* NSWindow+ResizeAdditions.m */,
-				C622EAF11F1FC5BA0015175A /* PGServer.plist */,
-				C622EAF21F1FC5BA0015175A /* SQL.strings */,
-				C622EAF31F1FC5BA0015175A /* UsersRolesView.xib */,
-				C622EAF41F1FC5BA0015175A /* UsersRolesViewController.h */,
-				C622EAF51F1FC5BA0015175A /* UsersRolesViewController.m */,
-				C622EAF61F1FC5BA0015175A /* ViewController.h */,
-				C622EAF71F1FC5BA0015175A /* ViewController.m */,
-			);
-			path = PGServer;
-			sourceTree = "<group>";
-		};
-		C622EAF81F1FC5BA0015175A /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				C622EAF91F1FC5BA0015175A /* PGFoundationApp.h */,
-				C622EAFA1F1FC5BA0015175A /* PGFoundationApp.m */,
-				C622EAFB1F1FC5BA0015175A /* PGFoundationClient.h */,
-				C622EAFC1F1FC5BA0015175A /* PGFoundationClient.m */,
-				C622EAFD1F1FC5BA0015175A /* PGFoundationServer.h */,
-				C622EAFE1F1FC5BA0015175A /* PGFoundationServer.m */,
-				C622EAFF1F1FC5BA0015175A /* Terminal.h */,
-				C622EB001F1FC5BA0015175A /* Terminal.m */,
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
-		C622EB011F1FC5BA0015175A /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				C622EB021F1FC5BA0015175A /* PGClient_ios */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
-		C622EB021F1FC5BA0015175A /* PGClient_ios */ = {
-			isa = PBXGroup;
-			children = (
-				C622EB031F1FC5BA0015175A /* main.m */,
-				C622EB041F1FC5BA0015175A /* PGApplication.h */,
-				C622EB051F1FC5BA0015175A /* PGApplication.m */,
-				C622EB061F1FC5BA0015175A /* PGClient_ios.plist */,
-				C622EB071F1FC5BA0015175A /* PGClientView.h */,
-				C622EB081F1FC5BA0015175A /* PGClientView.m */,
-				C622EB091F1FC5BA0015175A /* resources */,
-			);
-			path = PGClient_ios;
-			sourceTree = "<group>";
-		};
-		C622EB091F1FC5BA0015175A /* resources */ = {
-			isa = PBXGroup;
-			children = (
-				C622EB0A1F1FC5BA0015175A /* PGClientView.xib */,
-			);
-			path = resources;
-			sourceTree = "<group>";
-		};
-		C622EB0B1F1FC5BA0015175A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C622EB0C1F1FC5BA0015175A /* PGClientKit */,
-				C622EB421F1FC5BA0015175A /* PGControlsKit */,
-				C622EB731F1FC5BA0015175A /* PGDataKit */,
-				C622EB7A1F1FC5BA0015175A /* PGSchemaKit */,
-				C622EB8B1F1FC5BA0015175A /* PGServerKit */,
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		C622EB0C1F1FC5BA0015175A /* PGClientKit */ = {
-			isa = PBXGroup;
-			children = (
-				C622EB0D1F1FC5BA0015175A /* NSString+PGNetworkValidationAdditions.h */,
-				C622EB0E1F1FC5BA0015175A /* NSString+PGNetworkValidationAdditions.m */,
-				C622EB0F1F1FC5BA0015175A /* NSString+PrivateAdditions.h */,
-				C622EB101F1FC5BA0015175A /* NSString+PrivateAdditions.m */,
-				C622EB111F1FC5BA0015175A /* NSURL+PGAdditions.h */,
-				C622EB121F1FC5BA0015175A /* NSURL+PGAdditions.m */,
-				C622EB131F1FC5BA0015175A /* PGClientKit+Private.h */,
-				C622EB141F1FC5BA0015175A /* PGClientKit.h */,
-				C622EB151F1FC5BA0015175A /* PGClientKit_ios.plist */,
-				C622EB161F1FC5BA0015175A /* PGClientKit_mac.plist */,
-				C622EB171F1FC5BA0015175A /* PGClientParams.h */,
-				C622EB181F1FC5BA0015175A /* PGClientParams.m */,
-				C622EB191F1FC5BA0015175A /* PGConnection+Callbacks.m */,
-				C622EB1A1F1FC5BA0015175A /* PGConnection+Cancel.m */,
-				C622EB1B1F1FC5BA0015175A /* PGConnection+Connect.m */,
-				C622EB1C1F1FC5BA0015175A /* PGConnection+Disconnect.m */,
-				C622EB1D1F1FC5BA0015175A /* PGConnection+Errors.m */,
-				C622EB1E1F1FC5BA0015175A /* PGConnection+Execute.m */,
-				C622EB1F1F1FC5BA0015175A /* PGConnection+Notifications.m */,
-				C622EB201F1FC5BA0015175A /* PGConnection+Ping.m */,
-				C622EB211F1FC5BA0015175A /* PGConnection+Reset.m */,
-				C622EB221F1FC5BA0015175A /* PGConnection.h */,
-				C622EB231F1FC5BA0015175A /* PGConnection.m */,
-				C622EB241F1FC5BA0015175A /* PGConnectionPool.h */,
-				C622EB251F1FC5BA0015175A /* PGConnectionPool.m */,
-				C622EB261F1FC5BA0015175A /* PGConverters+Data2Object.m */,
-				C622EB271F1FC5BA0015175A /* PGConverters+Object2Data.m */,
-				C622EB281F1FC5BA0015175A /* PGConverters+Private.h */,
-				C622EB291F1FC5BA0015175A /* PGConverters.h */,
-				C622EB2A1F1FC5BA0015175A /* PGPasswordStore.h */,
-				C622EB2B1F1FC5BA0015175A /* PGPasswordStore.m */,
-				C622EB2C1F1FC5BA0015175A /* PGQuery.h */,
-				C622EB2D1F1FC5BA0015175A /* PGQuery.m */,
-				C622EB2E1F1FC5BA0015175A /* PGQueryDatabase.h */,
-				C622EB2F1F1FC5BA0015175A /* PGQueryDatabase.m */,
-				C622EB301F1FC5BA0015175A /* PGQueryObject.h */,
-				C622EB311F1FC5BA0015175A /* PGQueryObject.m */,
-				C622EB321F1FC5BA0015175A /* PGQueryPredicate.h */,
-				C622EB331F1FC5BA0015175A /* PGQueryPredicate.m */,
-				C622EB341F1FC5BA0015175A /* PGQueryRole.h */,
-				C622EB351F1FC5BA0015175A /* PGQueryRole.m */,
-				C622EB361F1FC5BA0015175A /* PGQuerySchema.h */,
-				C622EB371F1FC5BA0015175A /* PGQuerySchema.m */,
-				C622EB381F1FC5BA0015175A /* PGQuerySelect.h */,
-				C622EB391F1FC5BA0015175A /* PGQuerySelect.m */,
-				C622EB3A1F1FC5BA0015175A /* PGQuerySource.h */,
-				C622EB3B1F1FC5BA0015175A /* PGQuerySource.m */,
-				C622EB3C1F1FC5BA0015175A /* PGQueryTableView.h */,
-				C622EB3D1F1FC5BA0015175A /* PGQueryTableView.m */,
-				C622EB3E1F1FC5BA0015175A /* PGResult+TextTable.h */,
-				C622EB3F1F1FC5BA0015175A /* PGResult+TextTable.m */,
-				C622EB401F1FC5BA0015175A /* PGResult.h */,
-				C622EB411F1FC5BA0015175A /* PGResult.m */,
-			);
-			path = PGClientKit;
-			sourceTree = "<group>";
-		};
-		C622EB421F1FC5BA0015175A /* PGControlsKit */ = {
-			isa = PBXGroup;
-			children = (
-				C622EB431F1FC5BA0015175A /* PGConnectionWindow.xib */,
-				C622EB441F1FC5BA0015175A /* PGConnectionWindowController.h */,
-				C622EB451F1FC5BA0015175A /* PGConnectionWindowController.m */,
-				C622EB461F1FC5BA0015175A /* PGConnectionWindowFormatter.h */,
-				C622EB471F1FC5BA0015175A /* PGConnectionWindowFormatter.m */,
-				C622EB481F1FC5BA0015175A /* PGConsoleView.xib */,
-				C622EB491F1FC5BA0015175A /* PGConsoleViewBuffer.h */,
-				C622EB4A1F1FC5BA0015175A /* PGConsoleViewBuffer.m */,
-				C622EB4B1F1FC5BA0015175A /* PGConsoleViewController.h */,
-				C622EB4C1F1FC5BA0015175A /* PGConsoleViewController.m */,
-				C622EB4D1F1FC5BA0015175A /* PGControlsKit+Private.h */,
-				C622EB4E1F1FC5BA0015175A /* PGControlsKit.h */,
-				C622EB4F1F1FC5BA0015175A /* PGControlsKit.plist */,
-				C622EB501F1FC5BA0015175A /* PGDialog.xib */,
-				C622EB511F1FC5BA0015175A /* PGDialogBackgroundView.h */,
-				C622EB521F1FC5BA0015175A /* PGDialogBackgroundView.m */,
-				C622EB531F1FC5BA0015175A /* PGDialogCreateDatabaseView.h */,
-				C622EB541F1FC5BA0015175A /* PGDialogCreateDatabaseView.m */,
-				C622EB551F1FC5BA0015175A /* PGDialogView.h */,
-				C622EB561F1FC5BA0015175A /* PGDialogView.m */,
-				C622EB571F1FC5BA0015175A /* PGDialogWindow.h */,
-				C622EB581F1FC5BA0015175A /* PGDialogWindow.m */,
-				C622EB591F1FC5BA0015175A /* PGHelpTextView.h */,
-				C622EB5A1F1FC5BA0015175A /* PGHelpTextView.m */,
-				C622EB5B1F1FC5BA0015175A /* PGHelpWindow.xib */,
-				C622EB5C1F1FC5BA0015175A /* PGHelpWindowController.h */,
-				C622EB5D1F1FC5BA0015175A /* PGHelpWindowController.m */,
-				C622EB5E1F1FC5BA0015175A /* PGOutlineView.h */,
-				C622EB5F1F1FC5BA0015175A /* PGOutlineView.m */,
-				C622EB601F1FC5BA0015175A /* PGSourceView.xib */,
-				C622EB611F1FC5BA0015175A /* PGSourceViewConnection.h */,
-				C622EB621F1FC5BA0015175A /* PGSourceViewConnection.m */,
-				C622EB631F1FC5BA0015175A /* PGSourceViewController.h */,
-				C622EB641F1FC5BA0015175A /* PGSourceViewController.m */,
-				C622EB651F1FC5BA0015175A /* PGSourceViewHeading.h */,
-				C622EB661F1FC5BA0015175A /* PGSourceViewHeading.m */,
-				C622EB671F1FC5BA0015175A /* PGSourceViewNode.h */,
-				C622EB681F1FC5BA0015175A /* PGSourceViewNode.m */,
-				C622EB691F1FC5BA0015175A /* PGSourceViewTree.h */,
-				C622EB6A1F1FC5BA0015175A /* PGSourceViewTree.m */,
-				C622EB6B1F1FC5BA0015175A /* PGSplitView.xib */,
-				C622EB6C1F1FC5BA0015175A /* PGSplitViewController.h */,
-				C622EB6D1F1FC5BA0015175A /* PGSplitViewController.m */,
-				C622EB6E1F1FC5BA0015175A /* PGTabView.xib */,
-				C622EB6F1F1FC5BA0015175A /* PGTabViewController.h */,
-				C622EB701F1FC5BA0015175A /* PGTabViewController.m */,
-				C622EB711F1FC5BA0015175A /* PGTextFieldView.h */,
-				C622EB721F1FC5BA0015175A /* PGTextFieldView.m */,
-			);
-			path = PGControlsKit;
-			sourceTree = "<group>";
-		};
-		C622EB731F1FC5BA0015175A /* PGDataKit */ = {
-			isa = PBXGroup;
-			children = (
-				C622EB741F1FC5BA0015175A /* PGCSVImporter.h */,
-				C622EB751F1FC5BA0015175A /* PGCSVImporter.m */,
-				C622EB761F1FC5BA0015175A /* PGDataKit.h */,
-				C622EB771F1FC5BA0015175A /* PGDataKit_mac.plist */,
-				C622EB781F1FC5BA0015175A /* PGTableModel.h */,
-				C622EB791F1FC5BA0015175A /* PGTableModel.m */,
-			);
-			path = PGDataKit;
-			sourceTree = "<group>";
-		};
-		C622EB7A1F1FC5BA0015175A /* PGSchemaKit */ = {
-			isa = PBXGroup;
-			children = (
-				C622EB7B1F1FC5BA0015175A /* pgschema.base.schema.xml */,
-				C622EB7C1F1FC5BA0015175A /* pgschema.dtd */,
-				C622EB7D1F1FC5BA0015175A /* PGSchemaKit+Private.h */,
-				C622EB7E1F1FC5BA0015175A /* PGSchemaKit.h */,
-				C622EB7F1F1FC5BA0015175A /* PGSchemaKit.plist */,
-				C622EB801F1FC5BA0015175A /* PGSchemaKitSQL.strings */,
-				C622EB811F1FC5BA0015175A /* PGSchemaManager.h */,
-				C622EB821F1FC5BA0015175A /* PGSchemaManager.m */,
-				C622EB831F1FC5BA0015175A /* PGSchemaProduct.h */,
-				C622EB841F1FC5BA0015175A /* PGSchemaProduct.m */,
-				C622EB851F1FC5BA0015175A /* PGSchemaProductNV.h */,
-				C622EB861F1FC5BA0015175A /* PGSchemaProductNV.m */,
-				C622EB871F1FC5BA0015175A /* PGSchemaProductOp.h */,
-				C622EB881F1FC5BA0015175A /* PGSchemaProductOp.m */,
-				C622EB891F1FC5BA0015175A /* PGSchemaProductOpTable.h */,
-				C622EB8A1F1FC5BA0015175A /* PGSchemaProductOpTable.m */,
-			);
-			path = PGSchemaKit;
-			sourceTree = "<group>";
-		};
-		C622EB8B1F1FC5BA0015175A /* PGServerKit */ = {
-			isa = PBXGroup;
-			children = (
-				C622EB8C1F1FC5BA0015175A /* PGServer+Private.h */,
-				C622EB8D1F1FC5BA0015175A /* PGServer.h */,
-				C622EB8E1F1FC5BA0015175A /* PGServer.m */,
-				C622EB8F1F1FC5BA0015175A /* PGServerKit.h */,
-				C622EB901F1FC5BA0015175A /* PGServerKit.plist */,
-			);
-			path = PGServerKit;
-			sourceTree = "<group>";
-		};
-		C622EB911F1FC5BA0015175A /* UnitTests */ = {
-			isa = PBXGroup;
-			children = (
-				C622EB921F1FC5BA0015175A /* PGClientKit_unittests */,
-				C622EB9A1F1FC5BA0015175A /* PGControlsKit_testcases */,
-				C622EB9D1F1FC5BA0015175A /* PGFoundationServer.h */,
-				C622EB9E1F1FC5BA0015175A /* PGFoundationServer.m */,
-				C622EB9F1F1FC5BA0015175A /* PGServerKit_testcases */,
-				C622EBA21F1FC5BA0015175A /* PGUnitTester.h */,
-				C622EBA31F1FC5BA0015175A /* PGUnitTester.m */,
-			);
-			path = UnitTests;
-			sourceTree = "<group>";
-		};
-		C622EB921F1FC5BA0015175A /* PGClientKit_unittests */ = {
-			isa = PBXGroup;
-			children = (
-				C622EB931F1FC5BA0015175A /* Info.plist */,
-				C622EB941F1FC5BA0015175A /* NSString_PGNetworkValidationAdditions_tests.m */,
-				C622EB951F1FC5BA0015175A /* NSURL_PGAdditions_tests.m */,
-				C622EB961F1FC5BA0015175A /* PGClientKit_tests.m */,
-				C622EB971F1FC5BA0015175A /* PGConnection_tests.m */,
-				C622EB981F1FC5BA0015175A /* PGQuery_tests.m */,
-				C622EB991F1FC5BA0015175A /* type_tests.m */,
-			);
-			path = PGClientKit_unittests;
-			sourceTree = "<group>";
-		};
-		C622EB9A1F1FC5BA0015175A /* PGControlsKit_testcases */ = {
-			isa = PBXGroup;
-			children = (
-				C622EB9B1F1FC5BA0015175A /* Info.plist */,
-				C622EB9C1F1FC5BA0015175A /* PGControlsKit_testcases.m */,
-			);
-			path = PGControlsKit_testcases;
-			sourceTree = "<group>";
-		};
-		C622EB9F1F1FC5BA0015175A /* PGServerKit_testcases */ = {
-			isa = PBXGroup;
-			children = (
-				C622EBA01F1FC5BA0015175A /* Info.plist */,
-				C622EBA11F1FC5BA0015175A /* PGServerKit_testcases.m */,
-			);
-			path = PGServerKit_testcases;
-			sourceTree = "<group>";
-		};
 		C63286861F14C57D00A19010 /* xmlquery_xx2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1114,8 +136,6 @@
 		C65C1B571F0F93EB002E79FF /* crawler_datasheet */ = {
 			isa = PBXGroup;
 			children = (
-				C625B2731F1CFC320005EB9D /* PGFoundationClient.h */,
-				C625B2741F1CFC320005EB9D /* PGFoundationClient.m */,
 				C65C1B6F1F0F9813002E79FF /* Prefix.pch */,
 				C65C1B6B1F0F94B2002E79FF /* library */,
 				C65C1B581F0F93EB002E79FF /* main.m */,
@@ -1130,7 +150,6 @@
 		C65C1B6B1F0F94B2002E79FF /* library */ = {
 			isa = PBXGroup;
 			children = (
-				C622EA201F1FC5BA0015175A /* postgresql-kit-master */,
 				C63286861F14C57D00A19010 /* xmlquery_xx2 */,
 				C651E2F11F13DEEE006FB9F3 /* htmldocument */,
 			);
@@ -1153,10 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C65C1B5C1F0F93EB002E79FF /* Build configuration list for PBXNativeTarget "crawler_datasheet" */;
 			buildPhases = (
+				C675F3591F264CB500DE54D1 /* ShellScript */,
 				C65C1B511F0F93EB002E79FF /* Sources */,
 				C65C1B521F0F93EB002E79FF /* Frameworks */,
 				C65C1B531F0F93EB002E79FF /* CopyFiles */,
 				C642C4961F1D085800610B1C /* CopyFiles */,
+				C675F3581F264CA200DE54D1 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1200,6 +221,22 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C675F3591F264CB500DE54D1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\necho ${BUILT_PRODUCTS_DIR}\necho ${PROJECT_DIR}\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C65C1B511F0F93EB002E79FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1214,22 +251,10 @@
 				C622ECC51F1FC6660015175A /* HTMLDocument.m in Sources */,
 				C622ECC61F1FC6660015175A /* HTMLNode+XPath.m in Sources */,
 				C622ECC71F1FC6660015175A /* HTMLNode.m in Sources */,
-				C622ED021F1FC7F80015175A /* PGClientKit.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		C622EAC81F1FC5BA0015175A /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C622EAC91F1FC5BA0015175A /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C65C1B5A1F0F93EB002E79FF /* Debug */ = {
@@ -1276,6 +301,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
+				LD_RUNPATH_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1283,7 +309,7 @@
 					"$(inherited)",
 					"-lxml2",
 				);
-				SDKROOT = macosx10.11;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -1325,13 +351,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
+				LD_RUNPATH_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lxml2",
 				);
-				SDKROOT = macosx10.11;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};

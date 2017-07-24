@@ -26,11 +26,6 @@ typedef enum {
 } PGConnectionStatus;
 
 typedef enum {
-	PGClientTupleFormatText = 0,
-	PGClientTupleFormatBinary = 1
-} PGClientTupleFormat;
-
-typedef enum {
 	PGClientErrorNone = 0,                // no error occured
 	PGClientErrorState = 100,             // state is wrong for this call
 	PGClientErrorParameters = 101,        // invalid parameters
@@ -54,8 +49,9 @@ typedef enum {
 @class PGQueryObject;
 	@class PGQuery;
 		@class PGQuerySelect;
-//		@class PGQueryUpdate;
-//		@class PGQueryDelete;
+		@class PGQueryInsert;
+		@class PGQueryUpdate;
+		@class PGQueryDelete;
 		@class PGQueryDatabase;
 		@class PGQueryRole;
 		@class PGQuerySchema;
@@ -63,25 +59,35 @@ typedef enum {
 	@class PGQuerySource;
 	@class PGQueryPredicate;
 
-// header includes
+@class PGTransaction;
+
+// connections
 #import "PGConnection.h"
 #import "PGConnectionPool.h"
-#import "PGResult.h"
 
 // queries
 #import "PGQueryObject.h"
 #import "PGQuery.h"
 #import "PGQuerySelect.h"
+#import "PGQueryInsert.h"
+#import "PGQueryDelete.h"
+#import "PGQueryUpdate.h"
 #import "PGQueryDatabase.h"
 #import "PGQueryRole.h"
 #import "PGQuerySchema.h"
 #import "PGQueryTableView.h"
-
 #import "PGQuerySource.h"
 #import "PGQueryPredicate.h"
 
+// transactions
+#import "PGTransaction.h"
+
+// results
+#import "PGResult.h"
+
 // helpers
 #import "NSURL+PGAdditions.h"
+#import "NSError+PGAdditions.h"
 #import "NSString+PGNetworkValidationAdditions.h"
 #import "PGPasswordStore.h"
 

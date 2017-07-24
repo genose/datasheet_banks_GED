@@ -32,6 +32,8 @@ static NSMutableArray* operation_list_collected ;
 static NSMutableArray* operation_list_collected_indexes ;
 
 
+double resolutionTimeOut = 5.0;
+BOOL isRunning;
 
 int cnt ;
 NSMutableArray* crawlers_obj;
@@ -102,12 +104,16 @@ int main(int argc, const char * argv[]) {
 //                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/727243/MERITEK/AD.html",
                                                  nil], followUrls_PAGESDATASHEET );
     
+//    [[crawlers_obj objectAtIndex:0] initWithUrl: @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html"];
+    //  [[crawlers_obj objectAtIndex:0] query:@" .... "];
     
-    
-    
-    
-    
-    
+       do {
+        NSDate* theNextDate = [NSDate dateWithTimeIntervalSinceNow:resolutionTimeOut];
+        isRunning = [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
+        [NSThread sleepForTimeInterval:.1];
+        NSLog(@" .... %d",isRunning);
+    } while(isRunning);
+//
     return 0;
 }
 
@@ -119,7 +125,7 @@ int dispatch_jobs(id jobsList, int followUrls)
     dispatch_group_t group = dispatch_group_create();
     //2.create queue
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    
+
     
     
     
@@ -163,7 +169,7 @@ int dispatch_jobs(id jobsList, int followUrls)
                     //
                     //                                    NSLog(@" ..... >> (%@) ", opeChildName );
                     
-                    //                    [NSThread detachNewThreadWithBlock:
+//                                        [NSThread detachNewThreadWithBlock:
                     dispatch_group_async(group, queue,
                                          
                                          ^{
@@ -183,92 +189,15 @@ int dispatch_jobs(id jobsList, int followUrls)
                                                          ;;
                                                          
                                                          
-                                                         
+                                                         bool isRunningthread = YES;
                                                          @try {
-                                                             
-//                                                             PGConnection *connection = [[PGConnection alloc] init];
-//                                                             
-//                                                             [connection setUserName: @"postgres"];
-//                                                             [connection setPassword: @""];
-//                                                             [connection setServer: @"localhost"];
-//                                                             [connection setPort: @"5432"];
-//                                                             [connection setDatabaseName: @"postgres"];
-//                                                             
-//                                                             if( [connection connect] )
-//                                                             {
-//                                                                 NSString *cmd;
-//                                                                 cmd = [NSString stringWithString: @"select verison() as version"];
-//                                                                 PGSQLRecordset *rs = [connection open: cmd];
-//                                                                 
-//                                                                 if( ![rs is EOF] )
-//                                                                 {
-//                                                                     [serverVersion setStringValue: [[rs fieldByName: @"version"] asString]];
-//                                                                 }
-//                                                                 [rs close];
-//                                                                 [connection close];
-//                                                             }
-//                                                             else
-//                                                             {
-//                                                                 NSLog( @"Connection Error: %@", [connecion lastError] );
-//                                                             }
-//                                                             
-                                                             
-                                                             
-                                                             PGQueryObject* query = [PGQuery queryWithString:@"SELECT datname AS database,pid AS pid,query AS query,usename AS username,client_hostname AS remotehost,application_name,query_start,waiting FROM pg_stat_activity WHERE pid <> pg_backend_pid()"];
-                                                             
-                                                             
-                                                             NSURL* urlBDD = [NSURL URLWithString:@"postgresql://stats:xcode@localhost/scotillard"];
-                                                             
-                                                             NSString* username = NSUserName();
-                                                             NSString* userpassword = @"scott";
-                                                             NSString* dbname = NSUserName();
-                                                             NSURL* urlBDD_test = [NSURL URLWithHost:@"localhost" port: 5432 ssl:NO username:username database:dbname params:nil];
-                                                             urlBDD_test = [NSURL URLWithSocketPath:nil port:(NSUInteger)5432 database:nil username:username params:nil];
-                                                             
-                                                             urlBDD_test = [NSURL URLWithHost:@"localhost" ssl:NO username: username database:dbname params:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                                                                                                                             @"5432", @"port",
-                                                                                                                                                             
-                                                                                                                                                             [NSString stringWithFormat:@"%d",20], @"connect_timeout",
-                                                                                                                                                             
-                                                                                                                                                             userpassword,  @"password",
-                                                                                                                                                             
-                                                                                                                                                             
-                                                                                                                                                             
-                                                                                                                                                             nil] ];
-                                                             NSLog(@" Sart Connection with  : %@ : %@", urlBDD_test, urlBDD);
-                                                             NSError* cnxError = nil;
-                                                             
-                                                             BOOL isConnected = FALSE;
-                                                             
-                                                             PGConnection *SQLServ_db = [PGConnection new];
-                                                             
-                                                             //
-                                                             [SQLServ_db setDelegate:[crawlers_obj objectAtIndex:0]];
-                                                             
-                                                             
-                                                             //        [SQLServ_db connectWithURL:urlBDD_test usedPassword:&isConnected error:&cnxError];
-                                                             
-                                                             [SQLServ_db connectWithURL:urlBDD_test   whenDone:^(BOOL usedPassword, NSError *error) {
+                                                             do {
+                                                                 NSDate* theNextDate = [NSDate dateWithTimeIntervalSinceNow:resolutionTimeOut];
                                                                  
-                                                                 if(error) {
-                                                                     NSLog(@" SQLServ_db  :: Error: %@",error);
-                                                                     [ SQLServ_db disconnect];
-                                                                     return;
-                                                                 }else {
-                                                                     NSLog(@" SQLServ_db  :: connected .... : %@",error);
-                                                                     [SQLServ_db executeQuery:query whenDone:^(PGResult* result, NSError* error) {
-                                                                         if(result) {
-                                                                             NSLog(@" SQLServ_db  :: %@ ", result);
-                                                                         }
-                                                                         if(error) {
-                                                                             NSLog(@" SQLServ_db :: error :: %@ :: %@", result, error);
-                                                                         }
-                                                                     }];
-                                                                 }
-                                                                 [SQLServ_db disconnect];
-                                                                 //                                                                 cleared_status =  YES;
-                                                             }];
-                                                             
+                                                                  isRunningthread = [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
+//                                                                 [NSThread sleepForTimeInterval:.1];
+                                                                 NSLog(@" .... %d :: %d",isRunningthread, ((crawler_object *)PageCrawler).cleared_status);
+                                                             } while(isRunningthread &&  !((crawler_object *)PageCrawler).cleared_status );
                                                              
                                                          } @catch (NSException *exception) {
                                                              NSLog(@" ERROR :: %@ :: %@",@"Main", exception);
@@ -276,21 +205,18 @@ int dispatch_jobs(id jobsList, int followUrls)
                                                              ;;
                                                          }
                                                          
-                                                         
-                                                         
-                                                         
                                                      }
                                              
 
                                              
                                              NSLog(@" -------- CLEAR ::::  %@  \n ==== \n  fetchedData : %ld :: fetchedDataIndex : %ld  \n ==== \n ", PageCrawler,  (unsigned long)[[PageCrawler fetchedData] count],  [[PageCrawler fetchedDataIndex] count]);
                                              
-                                             //                    }];
+//                                                                 }];
                                          });
                     
-                   [NSThread sleepForTimeInterval:.2];
+//                   [NSThread sleepForTimeInterval:.2];
                     
-                }else if([jobsList count]){
+                                  }else if([jobsList count]){
                     NSLog(@" ====  %@ ==== Something wrong in queue :: %ld :: %@ ", [NSThread currentThread], [jobsList count], urltoFetch);
                 }
                 
@@ -303,8 +229,11 @@ int dispatch_jobs(id jobsList, int followUrls)
         
         inQueueWainting   = [jobsList count];
         
+
+
         
         
+//
         [NSThread sleepForTimeInterval:.1];
         
         

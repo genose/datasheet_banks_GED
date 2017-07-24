@@ -13,7 +13,7 @@
 @interface crawler_object : NSObject  <PGConnectionDelegate>  {
 
     
-        PGConnection *SQLServ_db;
+        PGConnection *_SQLServ_db;
     
     
         NSString *element_name;
@@ -38,6 +38,7 @@
 @property     int  document_url_index_child;
 @property     bool cleared_status;
 
+@property (readonly) PGConnection* SQLServ_db;
 
 -(instancetype)initWithUrl:(NSString*)urlEntryPoint;
 -(id)nodesForAxpression:(NSString*)xpathStr :(id)document;

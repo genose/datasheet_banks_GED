@@ -19,6 +19,7 @@ static NSMutableDictionary *followedLink;
 
 @implementation crawler_object
 
+
 @synthesize document_url;
 @synthesize  cleared_status;
 @synthesize document_url_index;
@@ -32,6 +33,10 @@ static NSMutableDictionary *followedLink;
     
     if( self  ==nil)
         self = [super init];
+    
+    
+    _SQLServ_db = [PGConnection new];
+    [_SQLServ_db setDelegate:self];
     cleared_status =  NO;
     //     document_url_index_follow = NO;
     document_url = urlEntryPoint;
@@ -47,6 +52,10 @@ static NSMutableDictionary *followedLink;
     
     return self;
 }
+
+@synthesize SQLServ_db = _SQLServ_db;
+
+
 -(id)nodesForAxpression:(NSString*)xpathStr :(id)document
 {
     
@@ -227,140 +236,140 @@ static NSMutableDictionary *followedLink;
                 /* ****************************** */
                 /* ****************************** */
                 
-//                if(false && document_url_index_follow) {
-//                    
-//                    
-//                    
-//                    dispatch_semaphore_t  _Nonnull dsema  = dispatch_semaphore_create(0);
-//                    dispatch_group_t group = dispatch_group_create();
-//                    //2.create queue
-//                    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//                    int cnt = 8;
-//                    NSMutableArray* crawlers_obj = [NSMutableArray arrayWithCapacity: cnt];
-//                    /* ****************************** */
-//                    while ( cnt >0 ){
-//                        id  PageCrawler =  [[crawler_object alloc] init];
-//                        ((crawler_object *)PageCrawler).cleared_status =YES;
-//                        ((crawler_object *)PageCrawler).document_url_index_follow = NO;
-//                        ((crawler_object *)PageCrawler).document_url_index_child = 1;
-//                        [crawlers_obj addObject: PageCrawler ];
-//                        cnt--;
-//                    }
-//                    /* ****************************** */
-//                    
-//                    cnt = [element_urls_indexes_pages_relatives count];
-//                    
-//                    while ( cnt >=1 )
-//                    {
-//                        
-//                        cnt = [element_urls_indexes_pages_relatives count];
-//                        [NSThread sleepForTimeInterval:.1];
-//                        
-//                        for (int cnt_thread = [crawlers_obj count]-1; cnt_thread >0; cnt_thread  --) {
-//                            
-//                            [NSThread sleepForTimeInterval:.1];
-//                            
-//                            id objInThread = [ crawlers_obj objectAtIndex:cnt_thread] ;
-//                            bool cleared_fetch = [objInThread cleared];
-//                            
-//                            NSLog(@" Thread %d :: state : %d :: ope. %d :: %@ ", cnt_thread, cleared_fetch, cnt, objInThread );
-//                            
-//                            id PageCrawler = (( cleared_fetch && objInThread != nil )? objInThread :nil);
-//                            if(PageCrawler != nil) {
-//                                // :cnt ++;
-//                                
-//                                NSString* url_document_url_index_follow  = [element_urls_indexes_pages_relatives pushFiFo];
-//                                
-//                                NSArray* uri_compo_follow = [[NSURL URLWithString:url_document_url_index_follow] pathComponents];
-//                                
-//                                NSString *followedLink_follow = [[uri_compo_follow componentsJoinedByString:@"/"] stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
-//                                
-//                                if([followedLink objectForKey:uri_compo_follow]   ) {
-//                                    NSLog(@" .....  :::: ALREADY DONE  :: FOOLOW Link (%@) ", uri_compo_follow);
-//                                    continue;
-//                                    
-//                                }
-//                                
-//                                if( url_document_url_index_follow  == nil )
-//                                {
-//                                    NSLog(@" .....  :::: NIL FOLLOW ::: WARNING :: FOOLOW Link (%@) :: %@", url_document_url_index_follow, document_url);
-//                                    break;
-//                                }
-//                                
-//                                if([((NSString*)url_document_url_index_follow)  containsString:@"null"])
-//                                {
-//                                    NSLog(@" .....  :::: CAN4T FOLLOW ::: WARNING :: FOOLOW Link (%@) ", url_document_url_index_follow);
-//                                    continue;
-//                                }
-//                                
-//                                ((crawler_object *)PageCrawler).cleared_status = NO;
-//                                ((crawler_object *)PageCrawler).document_url = [NSString stringWithFormat:@"%@",url_document_url_index_follow];
-//                                
-//                                
-//                                ((crawler_object *)PageCrawler).document_url_index_follow = NO;
-//                                ((crawler_object *)PageCrawler).document_url_index_child = cnt_thread;
-//                                
-//                                dispatch_group_async(group, queue, ^{
-//                                    
-//                                    crawler_object *subpage_index_crawler = ((crawler_object *)PageCrawler) ;
-//                                    
-//                                    NSString * thread_uri_following = [NSString stringWithFormat:@"%@",((crawler_object *)subpage_index_crawler).document_url];
-//                                    
-//                                    NSString* opeChildName = [NSString stringWithFormat:@"Child :: (%d::%d::%ld) >> %@ >> (%@) ", ((crawler_object *)subpage_index_crawler).document_url_index_child, cnt, [element_urls_indexes_pages_relatives count], document_url, thread_uri_following];
-//                                    
-//                                    
-//                                    [[NSThread currentThread] setName: opeChildName];
-//                                    
-//                                    NSLog(@" ..... >> (%@) ", opeChildName );
-//                                    
-//                                    
-//                                    if([((NSString*)thread_uri_following)  containsString:@"null"])
-//                                    {
-//                                        NSLog(@" .....  :::: CAN4T FOLLOW ::: WARNING :: FOOLOW Link (%@) ", thread_uri_following);
-//                                        ;;
-//                                    }else{
-//                                        
-//                                        subpage_index_crawler = [subpage_index_crawler initWithUrl:thread_uri_following];
-//                                        
-//                                    }
-//                                    ((crawler_object *)subpage_index_crawler).cleared_status = NO;
-//                                    long cnt_docs = [element_urls_documents count];
-//                                    long cnt_docs_indexes = [element_urls_indexes count];
-//                                    
-//                                    id fetchedFollow = [((crawler_object *)subpage_index_crawler) fetchedData];
-//                                    id fetchedFollowIndexed = [((crawler_object *)subpage_index_crawler) fetchedDataIndex];
-//                                    
-//                                    long fetchedFollow_cnt_docs = [fetchedFollow count];
-//                                    long fetchedFollow_cnt_docs_indexes = [fetchedFollowIndexed count];
-//                                    
-//                                    [element_urls_documents addObjectsFromArray: fetchedFollow];
-//                                    [element_urls_indexes addObjectsFromArray: fetchedFollowIndexed];
-//                                    
-//                                    NSLog(@" ..... << (%@) (%ld :: %ld) adding (%ld :: %ld) ", ((crawler_object*)subpage_index_crawler).document_url , cnt_docs, cnt_docs_indexes, fetchedFollow_cnt_docs, fetchedFollow_cnt_docs_indexes);
-//                                    
-//                                    [NSThread sleepForTimeInterval:.1];
-//                                    ((crawler_object *)subpage_index_crawler).cleared_status = YES;
-//                                    
-//                                });
-//                                [NSThread sleepForTimeInterval:.5];
-//                                
-//                            }
-//                            
-//                        }
-//                        
-//                    }
-//                    //4.notify when finished
-//                    dispatch_group_notify(group, queue, ^{
-//                        
-//                        NSLog(@" ------- fiish foolowed- %@", [NSThread currentThread]);
-//                        dispatch_semaphore_signal(dsema);
-//                    });
-//                    
-//                    dispatch_group_wait(group, DISPATCH_TIME_NOW);
-//                    dispatch_semaphore_wait(dsema, DISPATCH_TIME_NOW);
-//                    
-//                    
-//                }
+                //                if(false && document_url_index_follow) {
+                //
+                //
+                //
+                //                    dispatch_semaphore_t  _Nonnull dsema  = dispatch_semaphore_create(0);
+                //                    dispatch_group_t group = dispatch_group_create();
+                //                    //2.create queue
+                //                    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+                //                    int cnt = 8;
+                //                    NSMutableArray* crawlers_obj = [NSMutableArray arrayWithCapacity: cnt];
+                //                    /* ****************************** */
+                //                    while ( cnt >0 ){
+                //                        id  PageCrawler =  [[crawler_object alloc] init];
+                //                        ((crawler_object *)PageCrawler).cleared_status =YES;
+                //                        ((crawler_object *)PageCrawler).document_url_index_follow = NO;
+                //                        ((crawler_object *)PageCrawler).document_url_index_child = 1;
+                //                        [crawlers_obj addObject: PageCrawler ];
+                //                        cnt--;
+                //                    }
+                //                    /* ****************************** */
+                //
+                //                    cnt = [element_urls_indexes_pages_relatives count];
+                //
+                //                    while ( cnt >=1 )
+                //                    {
+                //
+                //                        cnt = [element_urls_indexes_pages_relatives count];
+                //                        [NSThread sleepForTimeInterval:.1];
+                //
+                //                        for (int cnt_thread = [crawlers_obj count]-1; cnt_thread >0; cnt_thread  --) {
+                //
+                //                            [NSThread sleepForTimeInterval:.1];
+                //
+                //                            id objInThread = [ crawlers_obj objectAtIndex:cnt_thread] ;
+                //                            bool cleared_fetch = [objInThread cleared];
+                //
+                //                            NSLog(@" Thread %d :: state : %d :: ope. %d :: %@ ", cnt_thread, cleared_fetch, cnt, objInThread );
+                //
+                //                            id PageCrawler = (( cleared_fetch && objInThread != nil )? objInThread :nil);
+                //                            if(PageCrawler != nil) {
+                //                                // :cnt ++;
+                //
+                //                                NSString* url_document_url_index_follow  = [element_urls_indexes_pages_relatives pushFiFo];
+                //
+                //                                NSArray* uri_compo_follow = [[NSURL URLWithString:url_document_url_index_follow] pathComponents];
+                //
+                //                                NSString *followedLink_follow = [[uri_compo_follow componentsJoinedByString:@"/"] stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
+                //
+                //                                if([followedLink objectForKey:uri_compo_follow]   ) {
+                //                                    NSLog(@" .....  :::: ALREADY DONE  :: FOOLOW Link (%@) ", uri_compo_follow);
+                //                                    continue;
+                //
+                //                                }
+                //
+                //                                if( url_document_url_index_follow  == nil )
+                //                                {
+                //                                    NSLog(@" .....  :::: NIL FOLLOW ::: WARNING :: FOOLOW Link (%@) :: %@", url_document_url_index_follow, document_url);
+                //                                    break;
+                //                                }
+                //
+                //                                if([((NSString*)url_document_url_index_follow)  containsString:@"null"])
+                //                                {
+                //                                    NSLog(@" .....  :::: CAN4T FOLLOW ::: WARNING :: FOOLOW Link (%@) ", url_document_url_index_follow);
+                //                                    continue;
+                //                                }
+                //
+                //                                ((crawler_object *)PageCrawler).cleared_status = NO;
+                //                                ((crawler_object *)PageCrawler).document_url = [NSString stringWithFormat:@"%@",url_document_url_index_follow];
+                //
+                //
+                //                                ((crawler_object *)PageCrawler).document_url_index_follow = NO;
+                //                                ((crawler_object *)PageCrawler).document_url_index_child = cnt_thread;
+                //
+                //                                dispatch_group_async(group, queue, ^{
+                //
+                //                                    crawler_object *subpage_index_crawler = ((crawler_object *)PageCrawler) ;
+                //
+                //                                    NSString * thread_uri_following = [NSString stringWithFormat:@"%@",((crawler_object *)subpage_index_crawler).document_url];
+                //
+                //                                    NSString* opeChildName = [NSString stringWithFormat:@"Child :: (%d::%d::%ld) >> %@ >> (%@) ", ((crawler_object *)subpage_index_crawler).document_url_index_child, cnt, [element_urls_indexes_pages_relatives count], document_url, thread_uri_following];
+                //
+                //
+                //                                    [[NSThread currentThread] setName: opeChildName];
+                //
+                //                                    NSLog(@" ..... >> (%@) ", opeChildName );
+                //
+                //
+                //                                    if([((NSString*)thread_uri_following)  containsString:@"null"])
+                //                                    {
+                //                                        NSLog(@" .....  :::: CAN4T FOLLOW ::: WARNING :: FOOLOW Link (%@) ", thread_uri_following);
+                //                                        ;;
+                //                                    }else{
+                //
+                //                                        subpage_index_crawler = [subpage_index_crawler initWithUrl:thread_uri_following];
+                //
+                //                                    }
+                //                                    ((crawler_object *)subpage_index_crawler).cleared_status = NO;
+                //                                    long cnt_docs = [element_urls_documents count];
+                //                                    long cnt_docs_indexes = [element_urls_indexes count];
+                //
+                //                                    id fetchedFollow = [((crawler_object *)subpage_index_crawler) fetchedData];
+                //                                    id fetchedFollowIndexed = [((crawler_object *)subpage_index_crawler) fetchedDataIndex];
+                //
+                //                                    long fetchedFollow_cnt_docs = [fetchedFollow count];
+                //                                    long fetchedFollow_cnt_docs_indexes = [fetchedFollowIndexed count];
+                //
+                //                                    [element_urls_documents addObjectsFromArray: fetchedFollow];
+                //                                    [element_urls_indexes addObjectsFromArray: fetchedFollowIndexed];
+                //
+                //                                    NSLog(@" ..... << (%@) (%ld :: %ld) adding (%ld :: %ld) ", ((crawler_object*)subpage_index_crawler).document_url , cnt_docs, cnt_docs_indexes, fetchedFollow_cnt_docs, fetchedFollow_cnt_docs_indexes);
+                //
+                //                                    [NSThread sleepForTimeInterval:.1];
+                //                                    ((crawler_object *)subpage_index_crawler).cleared_status = YES;
+                //
+                //                                });
+                //                                [NSThread sleepForTimeInterval:.5];
+                //
+                //                            }
+                //
+                //                        }
+                //
+                //                    }
+                //                    //4.notify when finished
+                //                    dispatch_group_notify(group, queue, ^{
+                //
+                //                        NSLog(@" ------- fiish foolowed- %@", [NSThread currentThread]);
+                //                        dispatch_semaphore_signal(dsema);
+                //                    });
+                //
+                //                    dispatch_group_wait(group, DISPATCH_TIME_NOW);
+                //                    dispatch_semaphore_wait(dsema, DISPATCH_TIME_NOW);
+                //
+                //
+                //                }
                 
             }
             /// page Liste link datasheet
@@ -410,10 +419,10 @@ static NSMutableDictionary *followedLink;
                 
                 NSArray *titleItemsNodes = [self nodesForAxpression:XpathQueryString_pdf_description  :document];
                 
-//                 NSLog(@" $$ ************** titleItemsNodes :: %@ **************** $$ ", titleItemsNodes);
+                //                 NSLog(@" $$ ************** titleItemsNodes :: %@ **************** $$ ", titleItemsNodes);
                 
-//                if([titleItemsNodes  count] >=2)
-//                    titleItemsNodes = [NSArray arrayWithObjects: [titleItemsNodes objectAtIndex:[titleItemsNodes  count] -2], [titleItemsNodes objectAtIndex:[titleItemsNodes  count] -1],  nil];
+                //                if([titleItemsNodes  count] >=2)
+                //                    titleItemsNodes = [NSArray arrayWithObjects: [titleItemsNodes objectAtIndex:[titleItemsNodes  count] -2], [titleItemsNodes objectAtIndex:[titleItemsNodes  count] -1],  nil];
                 
                 element_document_url    = [[((NSArray*)[ [linkNodes firstObject]  attributeForName:@"href"]) firstObject]  stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet] ] ;
                 
@@ -426,41 +435,41 @@ static NSMutableDictionary *followedLink;
                 
                 
                 
-//                NSLog(@" $$ ************** titleItemsNodes :: %@ **************** $$ ", titleItemsNodes);
+                //                NSLog(@" $$ ************** titleItemsNodes :: %@ **************** $$ ", titleItemsNodes);
                 int flag = 0;
                 for (id elementKey in titleItemsNodes) {
                     
-                   id elmentcontent  = [ elementKey objectForKey:@"nodeChildArray"];
+                    id elmentcontent  = [ elementKey objectForKey:@"nodeChildArray"];
                     
                     if( elmentcontent != nil )
                     {
                         
-                       elmentcontent  = [ [elmentcontent firstObject] objectForKey:@"nodeContent"];
+                        elmentcontent  = [ [elmentcontent firstObject] objectForKey:@"nodeContent"];
                         
                         if(flag >0)
                         {
                             element_name_constructor = [((NSString*)elmentcontent) stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet] ];
                             break;
                         }
-
+                        
                         
                         
                         if(  [ [elmentcontent lowercaseString] isEqualToString:@"maker"] || [ [elmentcontent lowercaseString] isEqualToString:@"manufacture"] )
                         {
-//                             NSLog(@" $$ ************** titleItemsNodes :: %@ **************** $$ ", elmentcontent );
+                            //                             NSLog(@" $$ ************** titleItemsNodes :: %@ **************** $$ ", elmentcontent );
                             flag ++;
                         }else{
-//                             NSLog(@" $$ -------- titleItemsNodes :: %@ **************** $$ ", elmentcontent );
+                            //                             NSLog(@" $$ -------- titleItemsNodes :: %@ **************** $$ ", elmentcontent );
                         }
                         
                     }
-                                    }
-//                element_name_constructor     =  [titleItemsNodes firstObject] ;
+                }
+                //                element_name_constructor     =  [titleItemsNodes firstObject] ;
                 
                 element_name_constructor     = element_name_constructor; // [element_name attributeForName:@"href"];
                 NSLog(@" \n $$$$$$$$ So we Got \n :: name (%@)\n :: description (%@)\n :: Maker (%@)\n :: Datasheeet at (%@) \n  $$$$$$$$ \n", element_name, element_description, element_name_constructor, element_document_url  );
                 
-//                [self query:@"..."];
+                                [self query:@"..."];
                 
                 
             }else{
@@ -472,10 +481,10 @@ static NSMutableDictionary *followedLink;
         
         NSLog(@" ..... SELF << (%@) adding (%ld :: %ld) ", ((document_url_index_child > 1)? [NSString stringWithFormat: @"CSTHILD (%d) ::", document_url_index_child]: @"") ,  [[self fetchedData] count], [[self fetchedDataIndex] count]);
         
-//        if(document_url_index_follow){
-//            addLinkCollectingIndex([self fetchedDataIndexPages]);
-//        }
-//        addLinkCollecting([self fetchedDataIndex]);
+        //        if(document_url_index_follow){
+        //            addLinkCollectingIndex([self fetchedDataIndexPages]);
+        //        }
+        //        addLinkCollecting([self fetchedDataIndex]);
         
         
         
@@ -527,66 +536,71 @@ static NSMutableDictionary *followedLink;
 -(void)query: (NSString*)aQuery
 {
     
-   
+     cleared_status =  NO;
     @try {
-    
-        PGQueryObject* query = [PGQuery queryWithString:@"SELECT datname AS database,pid AS pid,query AS query,usename AS username,client_hostname AS remotehost,application_name,query_start,waiting FROM pg_stat_activity WHERE pid <> pg_backend_pid()"];
-      
+        
+        PGQueryObject* query =
+        [PGQuery queryWithString:@"SELECT datname AS database,pid AS pid,query AS query,usename AS username,client_hostname AS remotehost,application_name,query_start,waiting FROM pg_stat_activity WHERE pid <> pg_backend_pid()"];
+        
         
         NSURL* urlBDD = [NSURL URLWithString:@"postgresql://stats:xcode@localhost/scotillard"];
         
-        NSString* username = @"postgres";
-        NSString* userpassword = @"postgres";
-        NSString* dbname = @"postgres";
-         NSURL* urlBDD_test = [NSURL URLWithHost:@"localhost" port: 5432 ssl:NO username:username database:dbname params:nil];
-          urlBDD_test = [NSURL URLWithSocketPath:nil port:(NSUInteger)5432 database:nil username:username params:nil];
+        NSString* username = NSUserName();
+        NSString* userpassword = @"scott";
+        NSString* dbname = NSUserName();
+        NSURL* urlBDD_test = [NSURL URLWithHost:@"localhost" port: 5432 ssl:NO username:username database:dbname params:nil];
+        //          urlBDD_test = [NSURL URLWithSocketPath:nil port:(NSUInteger)5432 database:nil username:username params:nil];
         
-//           urlBDD_test = [NSURL URLWithHost:@"localhost" ssl:NO username: username database:dbname params:[NSDictionary dictionaryWithObjectsAndKeys:
-//                                                                                                                       [NSString stringWithFormat:@"%lu",DEF_PGPORT], @"port",
-//                                                                                                                
-//                                                                                                                        [NSString stringWithFormat:@"%d",10], @"connect_timeout",
-//                                                                                                                
-//                                                                                                                        userpassword,  @"password",
-//                                                                                                                
-//                                                                                                   
-//                                                                                                                         
-//                                                                                                                       nil] ];
+        urlBDD_test = [NSURL URLWithHost:@"localhost" ssl:NO username: username database:dbname params:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                                                                        @"5432", @"port",
+                                                                                                        
+                                                                                                        [NSString stringWithFormat:@"%d",20], @"connect_timeout",
+                                                                                                        
+                                                                                                        userpassword,  @"password",
+                                                                                                        
+                                                                                                        
+                                                                                                        
+                                                                                                        nil] ];
+        
         NSLog(@" Sart Connection with  : %@ : %@", urlBDD_test, urlBDD);
         NSError* cnxError = nil;
-       
-         BOOL isConnected = FALSE;
         
-        SQLServ_db = [PGConnection new];
+        BOOL isConnected = FALSE;
         
-         [SQLServ_db setDelegate:self];
+//        SQLServ_db = [PGConnection new];
         
         
-//        [SQLServ_db connectWithURL:urlBDD_test usedPassword:&isConnected error:&cnxError];
         
-        [SQLServ_db connectWithURL:[NSURL URLWithString:@""]   whenDone:^(BOOL usedPassword, NSError *error) {
-            
-            if(error) {
-                NSLog(@" SQLServ_db  :: Error: %@",error);
-                 [ SQLServ_db disconnect];
+        
+        //        [SQLServ_db connectWithURL:urlBDD_test usedPassword:&isConnected error:&cnxError];
+        
+        [[self SQLServ_db] connectWithURL: urlBDD_test   whenDone:^(BOOL usedPassword, NSError *errorConnect) {
+            NSLog(@" SQLServ_db  :: .... :");
+            if(errorConnect) {
+                NSLog(@" SQLServ_db  :: Error: %@",errorConnect);
+                //   [ SQLServ_db disconnect];
+                 cleared_status =  YES;
                 return;
             }else {
-                 NSLog(@" SQLServ_db  :: connected .... : %@",error);
-                [SQLServ_db executeQuery:query whenDone:^(PGResult* result, NSError* error) {
+                NSLog(@" SQLServ_db  :: connected .... : %@",errorConnect);
+                [[self SQLServ_db] execute:query whenDone:^(PGResult* result, NSError* error) {
                     if(result) {
-                        NSLog(@" SQLServ_db  :: %@ ", result);
+                        NSLog(@" SQLServ_db  :: result :: %@ ", result);
                     }
                     if(error) {
                         NSLog(@" SQLServ_db :: error :: %@ :: %@", result, error);
                     }
+                     cleared_status =  YES;
+                     [[self SQLServ_db] disconnect];
                 }];
             }
-            [SQLServ_db disconnect];
-            cleared_status =  YES;
+           
+           
         }];
         
         
     } @catch (NSException *exception) {
-           NSLog(@" ERROR :: %@ :: %@",NSStringFromSelector(_cmd), exception);
+        NSLog(@" ERROR :: %@ :: %@",NSStringFromSelector(_cmd), exception);
     } @finally {
         ;;
     }
@@ -596,30 +610,30 @@ static NSMutableDictionary *followedLink;
 }
 
 -(void)connection:(PGConnection* )connection willExecute:(NSString *)query {
-       NSLog(@" SQLServ_db  :: %@ :: %@ ", NSStringFromSelector(_cmd),query);
+    NSLog(@" SQLServ_db  :: %@ :: %@ ", NSStringFromSelector(_cmd),query);
 }
 
 -(void)connection:(PGConnection* )connection statusChange:(PGConnectionStatus)status description:(NSString *)description {
-
+    
     NSLog(@" SQLServ_db  :: %@ :: %@ ", NSStringFromSelector(_cmd),[NSString stringWithFormat:@"StatusChange: %@ (%d)",description,status] );
-
+    
     // disconnected
     if(status==PGConnectionStatusDisconnected) {
         // indicate server connection has been shutdown
-        [SQLServ_db disconnect ];
+        [[self SQLServ_db] disconnect ];
     }
 }
 
 -(void)connection:(PGConnection* )connection error:(NSError* )error {
-       NSLog(@" SQLServ_db  :: %@ :: %@ ", NSStringFromSelector(_cmd),[NSString stringWithFormat:@"Error: %@ (%@/%ld)",[error localizedDescription],[error domain],[error code] ]);
+    NSLog(@" SQLServ_db  :: %@ :: %@ ", NSStringFromSelector(_cmd),[NSString stringWithFormat:@"Error: %@ (%@/%ld)",[error localizedDescription],[error domain],[error code] ]);
 }
 
 -(void)connection:(PGConnection* )connection notice:(NSString* )notice {
-      NSLog(@" SQLServ_db  :: %@ :: %@ ", NSStringFromSelector(_cmd),[NSString stringWithFormat:@"Notice: %@",notice]);
+    NSLog(@" SQLServ_db  :: %@ :: %@ ", NSStringFromSelector(_cmd),[NSString stringWithFormat:@"Notice: %@",notice]);
 }
 
 -(void)connection:(PGConnection *)connection notificationOnChannel:(NSString* )channelName payload:(NSString* )payload {
-       NSLog(@" SQLServ_db  :: %@ :: %@ ", NSStringFromSelector(_cmd),[NSString stringWithFormat:@"Notification: %@ Payload: %@",channelName,payload ]);
+    NSLog(@" SQLServ_db  :: %@ :: %@ ", NSStringFromSelector(_cmd),[NSString stringWithFormat:@"Notification: %@ Payload: %@",channelName,payload ]);
 }
 @end
 
