@@ -83,8 +83,9 @@
 	}
 }
 
--(void)connection:(PGConnection* )connection willExecute:(NSString *)query {
+-(NSString*)connection:(PGConnection* )connection willExecute:(NSString *)query {
 	[[self term] printf:query];
+    return nil;
 }
 
 -(void)connection:(PGConnection* )connection statusChange:(PGConnectionStatus)status description:(NSString *)description {
