@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C61748A61F27878A0062E7AD /* PGClientKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C617488F1F2787040062E7AD /* PGClientKit.framework */; };
 		C622ECBF1F1FC5D80015175A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C65C1B581F0F93EB002E79FF /* main.m */; };
 		C622ECC01F1FC5D80015175A /* crawler_object.m in Sources */ = {isa = PBXBuildFile; fileRef = C65C1B601F0F9456002E79FF /* crawler_object.m */; };
 		C622ECC11F1FC5D80015175A /* NSMutableArray+NSMutableFifo.m in Sources */ = {isa = PBXBuildFile; fileRef = C65C1B711F0FB802002E79FF /* NSMutableArray+NSMutableFifo.m */; };
@@ -16,10 +17,95 @@
 		C622ECC51F1FC6660015175A /* HTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = C651E2F21F13DF0E006FB9F3 /* HTMLDocument.m */; };
 		C622ECC61F1FC6660015175A /* HTMLNode+XPath.m in Sources */ = {isa = PBXBuildFile; fileRef = C651E2F41F13DF0E006FB9F3 /* HTMLNode+XPath.m */; };
 		C622ECC71F1FC6660015175A /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C651E2F71F13DF0E006FB9F3 /* HTMLNode.m */; };
-		C625B2721F1CFBAA0005EB9D /* PGClientKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C625B2711F1CFBAA0005EB9D /* PGClientKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		C642C4971F1D086700610B1C /* PGClientKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C625B2711F1CFBAA0005EB9D /* PGClientKit.framework */; };
 		C65C1B6E1F0F95D0002E79FF /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C65C1B6D1F0F95D0002E79FF /* libxml2.tbd */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C617488E1F2787040062E7AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C617487A1F2787040062E7AD /* postgresql-kit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6ED85B4616288C4800A6DC02;
+			remoteInfo = PGClientKit_mac;
+		};
+		C61748901F2787040062E7AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C617487A1F2787040062E7AD /* postgresql-kit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6ED763FB15F2673600687079;
+			remoteInfo = PGServerKit_mac;
+		};
+		C61748921F2787040062E7AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C617487A1F2787040062E7AD /* postgresql-kit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 14F1E84717CB83CD00710D4A;
+			remoteInfo = PGControlsKit_mac;
+		};
+		C61748941F2787040062E7AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C617487A1F2787040062E7AD /* postgresql-kit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6E1548291A5816E600556573;
+			remoteInfo = PGClientKit_ios;
+		};
+		C61748961F2787040062E7AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C617487A1F2787040062E7AD /* postgresql-kit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6ECA7ADC15F3637600AF2B70;
+			remoteInfo = PGFoundationServer;
+		};
+		C61748981F2787040062E7AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C617487A1F2787040062E7AD /* postgresql-kit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6E4DEC85162CC38D008B26BD;
+			remoteInfo = PGFoundationClient;
+		};
+		C617489A1F2787040062E7AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C617487A1F2787040062E7AD /* postgresql-kit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6E55A2091A618B0000CD2B60;
+			remoteInfo = PGClient;
+		};
+		C617489C1F2787040062E7AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C617487A1F2787040062E7AD /* postgresql-kit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 147070C61A90CB450069EF9C;
+			remoteInfo = PGClientKit_unittests;
+		};
+		C617489E1F2787040062E7AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C617487A1F2787040062E7AD /* postgresql-kit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6EBDEA681AF38B09009CC810;
+			remoteInfo = PGServerKit_unittests;
+		};
+		C61748A01F2787040062E7AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C617487A1F2787040062E7AD /* postgresql-kit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6E489C2D1A6D8EFA008E3068;
+			remoteInfo = PGControlsKit_testcases;
+		};
+		C61748A21F2787040062E7AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C617487A1F2787040062E7AD /* postgresql-kit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6EA7CA311AB23D4900F22E90;
+			remoteInfo = ControlsTest;
+		};
+		C61748A41F27874F0062E7AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C617487A1F2787040062E7AD /* postgresql-kit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6ED85B3516288C4800A6DC02;
+			remoteInfo = PGClientKit_mac;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C642C4961F1D085800610B1C /* CopyFiles */ = {
@@ -28,7 +114,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				C642C4971F1D086700610B1C /* PGClientKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +138,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C625B2711F1CFBAA0005EB9D /* PGClientKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PGClientKit.framework; path = crawler_datasheet/library/PGClientKit.framework; sourceTree = "<group>"; };
+		C617487A1F2787040062E7AD /* postgresql-kit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "postgresql-kit.xcodeproj"; path = "../../postgreSQL_kit/postgresql-kit/postgresql-kit.xcodeproj"; sourceTree = "<group>"; };
 		C632868B1F14C60100A19010 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
 		C632868C1F14C60100A19010 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
 		C632868D1F14C60100A19010 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
@@ -81,7 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C625B2721F1CFBAA0005EB9D /* PGClientKit.framework in Frameworks */,
+				C61748A61F27878A0062E7AD /* PGClientKit.framework in Frameworks */,
 				C65C1B6E1F0F95D0002E79FF /* libxml2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,6 +174,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C617487B1F2787040062E7AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C617488F1F2787040062E7AD /* PGClientKit.framework */,
+				C61748911F2787040062E7AD /* PGServerKit.framework */,
+				C61748931F2787040062E7AD /* PGControlsKit.framework */,
+				C61748951F2787040062E7AD /* PGClientKit_ios.framework */,
+				C61748971F2787040062E7AD /* PGFoundationServer */,
+				C61748991F2787040062E7AD /* PGFoundationClient */,
+				C617489B1F2787040062E7AD /* PGClient.app */,
+				C617489D1F2787040062E7AD /* PGClientKit_unittests.xctest */,
+				C617489F1F2787040062E7AD /* PGServerKit_unittests.xctest */,
+				C61748A11F2787040062E7AD /* .xctest */,
+				C61748A31F2787040062E7AD /* ControlsTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C63286861F14C57D00A19010 /* xmlquery_xx2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +239,7 @@
 		C65C1B571F0F93EB002E79FF /* crawler_datasheet */ = {
 			isa = PBXGroup;
 			children = (
+				C617487A1F2787040062E7AD /* postgresql-kit.xcodeproj */,
 				C65C1B6F1F0F9813002E79FF /* Prefix.pch */,
 				C65C1B6B1F0F94B2002E79FF /* library */,
 				C65C1B581F0F93EB002E79FF /* main.m */,
@@ -159,7 +263,6 @@
 		C65C1B6C1F0F95D0002E79FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C625B2711F1CFBAA0005EB9D /* PGClientKit.framework */,
 				C65C1B6D1F0F95D0002E79FF /* libxml2.tbd */,
 			);
 			name = Frameworks;
@@ -182,6 +285,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C61748A51F27874F0062E7AD /* PBXTargetDependency */,
 			);
 			name = crawler_datasheet;
 			productName = crawler_datasheet;
@@ -214,12 +318,98 @@
 			mainGroup = C65C1B4C1F0F93EB002E79FF;
 			productRefGroup = C65C1B561F0F93EB002E79FF /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C617487B1F2787040062E7AD /* Products */;
+					ProjectRef = C617487A1F2787040062E7AD /* postgresql-kit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C65C1B541F0F93EB002E79FF /* crawler_datasheet */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C617488F1F2787040062E7AD /* PGClientKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PGClientKit.framework;
+			remoteRef = C617488E1F2787040062E7AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C61748911F2787040062E7AD /* PGServerKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PGServerKit.framework;
+			remoteRef = C61748901F2787040062E7AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C61748931F2787040062E7AD /* PGControlsKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PGControlsKit.framework;
+			remoteRef = C61748921F2787040062E7AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C61748951F2787040062E7AD /* PGClientKit_ios.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PGClientKit_ios.framework;
+			remoteRef = C61748941F2787040062E7AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C61748971F2787040062E7AD /* PGFoundationServer */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = PGFoundationServer;
+			remoteRef = C61748961F2787040062E7AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C61748991F2787040062E7AD /* PGFoundationClient */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = PGFoundationClient;
+			remoteRef = C61748981F2787040062E7AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C617489B1F2787040062E7AD /* PGClient.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = PGClient.app;
+			remoteRef = C617489A1F2787040062E7AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C617489D1F2787040062E7AD /* PGClientKit_unittests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PGClientKit_unittests.xctest;
+			remoteRef = C617489C1F2787040062E7AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C617489F1F2787040062E7AD /* PGServerKit_unittests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PGServerKit_unittests.xctest;
+			remoteRef = C617489E1F2787040062E7AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C61748A11F2787040062E7AD /* .xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = .xctest;
+			remoteRef = C61748A01F2787040062E7AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C61748A31F2787040062E7AD /* ControlsTest.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = ControlsTest.app;
+			remoteRef = C61748A21F2787040062E7AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		C675F3591F264CB500DE54D1 /* ShellScript */ = {
@@ -256,6 +446,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C61748A51F27874F0062E7AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PGClientKit_mac;
+			targetProxy = C61748A41F27874F0062E7AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		C65C1B5A1F0F93EB002E79FF /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -284,7 +482,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -340,7 +538,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/Prefix.pch";

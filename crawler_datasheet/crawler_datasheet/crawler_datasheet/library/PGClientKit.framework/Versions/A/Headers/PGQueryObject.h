@@ -102,4 +102,7 @@
  */
 -(NSString* )quoteForConnection:(PGConnection* )connection error:(NSError** )error;
 
+-(const char* )UTF8String;
+-(NSString* )queryString;
+
 @end

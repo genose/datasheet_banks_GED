@@ -98,20 +98,20 @@ int main(int argc, const char * argv[]) {
     
     [[crawlers_obj objectAtIndex:0] resetFollowed];
     */
-    int stateColletedDatasheet = dispatch_jobs( [NSMutableArray arrayWithObjects:
-                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html",
-//                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/137274/AD/ADXL105EM-1.html",
-//                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/727243/MERITEK/AD.html",
-                                                 nil], followUrls_PAGESDATASHEET );
+//    int stateColletedDatasheet = dispatch_jobs( [NSMutableArray arrayWithObjects:
+//                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html",
+////                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/137274/AD/ADXL105EM-1.html",
+////                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/727243/MERITEK/AD.html",
+//                                                 nil], followUrls_PAGESDATASHEET );
     
-//    [[crawlers_obj objectAtIndex:0] initWithUrl: @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html"];
+    [[crawlers_obj objectAtIndex:0] initWithUrl: @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html"];
     //  [[crawlers_obj objectAtIndex:0] query:@" .... "];
     
        do {
         NSDate* theNextDate = [NSDate dateWithTimeIntervalSinceNow:resolutionTimeOut];
         isRunning = [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
         [NSThread sleepForTimeInterval:.1];
-        NSLog(@" .... %d",isRunning);
+        NSLog(@" :::: .... %d",isRunning);
     } while(isRunning);
 //
     return 0;
@@ -196,7 +196,7 @@ int dispatch_jobs(id jobsList, int followUrls)
                                                                  
                                                                   isRunningthread = [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
 //                                                                 [NSThread sleepForTimeInterval:.1];
-                                                                 NSLog(@" .... %d :: %d",isRunningthread, ((crawler_object *)PageCrawler).cleared_status);
+                                                                 NSLog(@" .... %d :: %d",isRunningthread, (int) ((crawler_object *)PageCrawler).cleared_status);
                                                              } while(isRunningthread &&  !((crawler_object *)PageCrawler).cleared_status );
                                                              
                                                          } @catch (NSException *exception) {

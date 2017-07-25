@@ -13,7 +13,7 @@
 @interface crawler_object : NSObject  <PGConnectionDelegate>  {
 
     
-        PGConnection *_SQLServ_db;
+    // PGConnection *_SQLServ_db;
     
     
         NSString *element_name;
