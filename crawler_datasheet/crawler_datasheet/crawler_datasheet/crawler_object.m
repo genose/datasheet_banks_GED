@@ -584,22 +584,26 @@ static NSMutableDictionary *followedLink;
                 
             }else {
                  NSLog(@" SQLServ_db  :: connectWithURL: connected .... : %@",errorConnect);
+                        [[self SQLServ_db] execute:query whenDone:^(PGResult* result, NSError* error) {
+                            //                    if(result) {
+                            NSLog(@" SQLServ_db  :: obj execute: result :: %@ ", result);
+                            //                    }
+                            if(error) {
+                                NSLog(@" SQLServ_db :: obj execute:error :: %@ :: %@", result, error);
+                            }
+                            [[self SQLServ_db] disconnect];
+                            cleared_status =  YES;
+                
+                        }];
+                
+                
+                
             }
            
            
         }];
        
-//        [[self SQLServ_db] execute:query whenDone:^(PGResult* result, NSError* error) {
-//            //                    if(result) {
-//            NSLog(@" SQLServ_db  :: obj execute: result :: %@ ", result);
-//            //                    }
-//            if(error) {
-//                NSLog(@" SQLServ_db :: obj execute:error :: %@ :: %@", result, error);
-//            }
-//            [[self SQLServ_db] disconnect];
-//            cleared_status =  YES;
-//            
-//        }];
+
         
     } @catch (NSException *exception) {
         NSLog(@" ERROR :: %@ :: %@",NSStringFromSelector(_cmd), exception);
