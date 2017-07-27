@@ -543,6 +543,11 @@ static NSMutableDictionary *followedLink;
 //        [PGQuery queryWithString:@"SELECT datname AS database,pid AS pid,query AS query,usename AS username,client_hostname AS remotehost,application_name,query_start,waiting FROM pg_stat_activity WHERE pid <> pg_backend_pid()"];
          [PGQuery queryWithString:@"SELECT datname FROM pg_database"];
         
+         PGQueryObject* query2 =[PGQuery queryWithString:[NSString stringWithFormat:@"SELECT user FROM %@", NSUserName()]];
+        
+        //     query = [PGQuery queryWithString:@"INSERT INTO public.datanet(  datanet_path, datanet_composant, datanet_content) VALUES ( 'fairchild', '2N****', 'composant ****');"];
+        
+        
         NSURL* urlBDD = [NSURL URLWithString:@"postgresql://stats:xcode@localhost/scotillard"];
         
         NSString* username = NSUserName();
@@ -574,7 +579,7 @@ static NSMutableDictionary *followedLink;
         
         //        [SQLServ_db connectWithURL:urlBDD_test usedPassword:&isConnected error:&cnxError];
         
-        [[self SQLServ_db] connectWithURL: urlBDD_test   whenDone:^(BOOL usedPassword, NSError *errorConnect) {
+        [((PGConnection*)[self SQLServ_db]) connectWithURL: urlBDD_test   whenDone:^(BOOL usedPassword, NSError *errorConnect) {
             NSLog(@" SQLServ_db  :: .... :");
             if(errorConnect) {
                 NSLog(@" SQLServ_db  :: connectWithURL: Error: %@",errorConnect);
@@ -584,26 +589,53 @@ static NSMutableDictionary *followedLink;
                 
             }else {
                  NSLog(@" SQLServ_db  :: connectWithURL: connected .... : %@",errorConnect);
-                        [[self SQLServ_db] execute:query whenDone:^(PGResult* result, NSError* error) {
-                            //                    if(result) {
-                            NSLog(@" SQLServ_db  :: obj execute: result :: %@ ", result);
-                            //                    }
-                            if(error) {
-                                NSLog(@" SQLServ_db :: obj execute:error :: %@ :: %@", result, error);
-                            }
-                            [[self SQLServ_db] disconnect];
-                            cleared_status =  YES;
                 
-                        }];
-                
-                
+                [[self SQLServ_db] execute:query whenDone:^(PGResult* result, NSError* error) {
+                    NSLog(@" SQLServ_db :: query_1 :: pass ");
+                    //                    if(result) {
+                    NSLog(@" SQLServ_db :: query_1 :: obj execute: result :: %@ ", [result fetchRowAsDictionary]);
+                    //                    }
+                    if(error) {
+                        NSLog(@" SQLServ_db :: query_1 :: obj execute:error :: %@ :: %@", result, error);
+                    }
+//                    [[self SQLServ_db] disconnect];
+//                    cleared_status =  YES;
+                    
+                }];
+                [[self SQLServ_db] _waitingPoolOperationForResult];
+                [[self SQLServ_db] _waitingPoolOperationForResultMaster];
+                [[self SQLServ_db] execute:query2 whenDone:^(PGResult* result, NSError* error) {
+                    NSLog(@" SQLServ_db :: query_2 :: pass ");
+                    //                    if(result) {
+                    NSLog(@" SQLServ_db :: query_2 :: obj execute: result :: %@ ", [result fetchRowAsDictionary]);
+                    //                    }
+                    if(error) {
+                        NSLog(@" SQLServ_db :: query_2 :: obj execute:error :: %@ :: %@", result, error);
+                    }
+                    //                    [[self SQLServ_db] disconnect];
+                    //                    cleared_status =  YES;
+                    
+                }];
                 
             }
-           
+            
+            NSLog(@" SQLServ_db  ..... DONE :: .... :");
            
         }];
-       
-
+//        [NSThread sleepForTimeInterval:6.0];
+//        [[self SQLServ_db] execute:query2 whenDone:^(PGResult* result, NSError* error) {
+//            //                    if(result) {
+//            NSLog(@" SQLServ_db :: query2 :: pass ");
+//            NSLog(@" SQLServ_db :: query2 :: obj execute: result :: %@ ", [result fetchRowAsDictionary]);
+//            //                    }
+//            if(error) {
+//                NSLog(@" SQLServ_db :: query2 :: obj execute:error :: %@ :: %@", result, error);
+//            }
+//            [[self SQLServ_db] disconnect];
+//            cleared_status =  YES;
+//            
+//        }];
+  NSLog(@" SQLServ_db  ..... exit :: .... :");
         
     } @catch (NSException *exception) {
         NSLog(@" ERROR :: %@ :: %@",NSStringFromSelector(_cmd), exception);

@@ -87,7 +87,25 @@ int main(int argc, const char * argv[]) {
 //    int state = dispatch_jobs( operation_list, followUrls_ALL );
     
     
- 
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken,^{
+        [NSThread detachNewThreadWithBlock:^{
+            @try{
+                do {
+                    NSDate* theNextDate = [NSDate dateWithTimeIntervalSinceNow:resolutionTimeOut];
+                    isRunning = [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
+                    [NSThread sleepForTimeInterval:.1];
+                    NSLog(@" :::: .... %d",isRunning);
+                } while(isRunning);
+                
+            } @catch (NSException *exception) {
+                NSLog(@" ERROR Disaptch :: %@ :: %@",@"Main", exception);
+            } @finally {
+                ;;
+            }
+        }];
+        
+    });
     
     
    /* NSLog(@" ############## Collecting clear ....");
@@ -109,7 +127,7 @@ int main(int argc, const char * argv[]) {
     
        do {
         NSDate* theNextDate = [NSDate dateWithTimeIntervalSinceNow:resolutionTimeOut];
-        isRunning = [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
+        isRunning = [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
         [NSThread sleepForTimeInterval:.1];
         NSLog(@" :::: .... %d",isRunning);
     } while(isRunning);
@@ -189,21 +207,21 @@ int dispatch_jobs(id jobsList, int followUrls)
                                                          ;;
                                                          
                                                          
-                                                         bool isRunningthread = YES;
-                                                         @try {
-                                                             do {
-                                                                 NSDate* theNextDate = [NSDate dateWithTimeIntervalSinceNow:resolutionTimeOut];
-                                                                 
-                                                                  isRunningthread = [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
-//                                                                 [NSThread sleepForTimeInterval:.1];
-                                                                 NSLog(@" .... %d :: %d",isRunningthread, (int) ((crawler_object *)PageCrawler).cleared_status);
-                                                             } while(isRunningthread &&  !((crawler_object *)PageCrawler).cleared_status );
-                                                             
-                                                         } @catch (NSException *exception) {
-                                                             NSLog(@" ERROR :: %@ :: %@",@"Main", exception);
-                                                         } @finally {
-                                                             ;;
-                                                         }
+//                                                         bool isRunningthread = YES;
+//                                                         @try {
+//                                                             do {
+//                                                                 NSDate* theNextDate = [NSDate dateWithTimeIntervalSinceNow:resolutionTimeOut];
+//                                                                 
+//                                                                  isRunningthread = [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
+////                                                                 [NSThread sleepForTimeInterval:.1];
+//                                                                 NSLog(@" .... %d :: %d",isRunningthread, (int) ((crawler_object *)PageCrawler).cleared_status);
+//                                                             } while(isRunningthread &&  !((crawler_object *)PageCrawler).cleared_status );
+//                                                             
+//                                                         } @catch (NSException *exception) {
+//                                                             NSLog(@" ERROR :: %@ :: %@",@"Main", exception);
+//                                                         } @finally {
+//                                                             ;;
+//                                                         }
                                                          
                                                      }
                                              
