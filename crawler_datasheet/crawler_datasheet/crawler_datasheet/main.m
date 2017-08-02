@@ -86,28 +86,42 @@ int main(int argc, const char * argv[]) {
     
 //    int state = dispatch_jobs( operation_list, followUrls_ALL );
     
+//    
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken,^{
+//#if ( defined(__IPHONE_10_3) &&  __IPHONE_OS_VERSION_MAX_ALLOWED  > __IPHONE_10_3 ) || ( defined(MAC_OS_X_VERSION_10_12) && MAC_OS_X_VERSION_MAX_ALLOWED > MAC_OS_X_VERSION_10_12 )
+//        [NSThread detachNewThreadWithBlock:
+//#else
+//
+//         dispatch_async(dispatch_get_current_queue(),
+//#endif
+//^{
+//            @try{
+//                do {
+//                    NSDate* theNextDate = [NSDate dateWithTimeIntervalSinceNow:resolutionTimeOut];
+//                    isRunning = [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
+//                    isRunning = [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
+//                    [NSThread sleepForTimeInterval:.1];
+//                    NSLog(@" :::: .... %d",isRunning);
+//                } while(isRunning);
+//                
+//            } @catch (NSException *exception) {
+//                NSLog(@" ERROR Disaptch :: %@ :: %@",@"Main", exception);
+//            } @finally {
+//                ;;
+//            }
+//}
+//#if ( defined(__IPHONE_10_3) &&  __IPHONE_OS_VERSION_MAX_ALLOWED  > __IPHONE_10_3 ) || ( defined(MAC_OS_X_VERSION_10_12) && MAC_OS_X_VERSION_MAX_ALLOWED > MAC_OS_X_VERSION_10_12 )
+//];
+//#else
+//);
+//#endif
+//
+//
+//        
+//    });
     
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken,^{
-        [NSThread detachNewThreadWithBlock:^{
-            @try{
-                do {
-                    NSDate* theNextDate = [NSDate dateWithTimeIntervalSinceNow:resolutionTimeOut];
-                    isRunning = [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
-                    [NSThread sleepForTimeInterval:.1];
-                    NSLog(@" :::: .... %d",isRunning);
-                } while(isRunning);
-                
-            } @catch (NSException *exception) {
-                NSLog(@" ERROR Disaptch :: %@ :: %@",@"Main", exception);
-            } @finally {
-                ;;
-            }
-        }];
-        
-    });
-    
-    
+
    /* NSLog(@" ############## Collecting clear ....");
     NSLog(@" ############## \n COLECTED LINKS INDEX: (%ld) \n %@",[operation_list_collected count], nil);
  
@@ -116,13 +130,13 @@ int main(int argc, const char * argv[]) {
     
     [[crawlers_obj objectAtIndex:0] resetFollowed];
     */
-//    int stateColletedDatasheet = dispatch_jobs( [NSMutableArray arrayWithObjects:
-//                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html",
-////                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/137274/AD/ADXL105EM-1.html",
-////                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/727243/MERITEK/AD.html",
-//                                                 nil], followUrls_PAGESDATASHEET );
-    
-    [[crawlers_obj objectAtIndex:0] initWithUrl: @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html"];
+    int stateColletedDatasheet = dispatch_jobs( [NSMutableArray arrayWithObjects:
+                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html",
+//                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/137274/AD/ADXL105EM-1.html",
+//                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/727243/MERITEK/AD.html",
+                                                 nil], followUrls_PAGESDATASHEET );
+
+//    [[crawlers_obj objectAtIndex:0] initWithUrl: @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html"];
     //  [[crawlers_obj objectAtIndex:0] query:@" .... "];
     
        do {
@@ -142,7 +156,8 @@ int dispatch_jobs(id jobsList, int followUrls)
     dispatch_semaphore_t  _Nonnull dsema  = dispatch_semaphore_create(0);
     dispatch_group_t group = dispatch_group_create();
     //2.create queue
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_queue_t queue = dispatch_queue_create("dispacthed_threads", DISPATCH_QUEUE_CONCURRENT);
+//    dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
     
     
@@ -213,9 +228,10 @@ int dispatch_jobs(id jobsList, int followUrls)
 //                                                                 NSDate* theNextDate = [NSDate dateWithTimeIntervalSinceNow:resolutionTimeOut];
 //                                                                 
 //                                                                  isRunningthread = [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
-////                                                                 [NSThread sleepForTimeInterval:.1];
-//                                                                 NSLog(@" .... %d :: %d",isRunningthread, (int) ((crawler_object *)PageCrawler).cleared_status);
-//                                                             } while(isRunningthread &&  !((crawler_object *)PageCrawler).cleared_status );
+//                                                                 isRunningthread = [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
+//                                                                 [NSThread sleepForTimeInterval:.1];
+////                                                                 NSLog(@" .... %d :: %d",isRunningthread, (int) ((crawler_object *)PageCrawler).cleared_status);
+//                                                             } while(   !((crawler_object *)PageCrawler).cleared_status );
 //                                                             
 //                                                         } @catch (NSException *exception) {
 //                                                             NSLog(@" ERROR :: %@ :: %@",@"Main", exception);
@@ -248,8 +264,9 @@ int dispatch_jobs(id jobsList, int followUrls)
         inQueueWainting   = [jobsList count];
         
 
-
-        
+//NSDate* theNextDate = [NSDate dateWithTimeIntervalSinceNow:resolutionTimeOut];
+//        bool isRunningthread = [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
+//        isRunningthread = [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
         
 //
         [NSThread sleepForTimeInterval:.1];

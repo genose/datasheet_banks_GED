@@ -11,13 +11,13 @@
 		C622ECBF1F1FC5D80015175A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C65C1B581F0F93EB002E79FF /* main.m */; };
 		C622ECC01F1FC5D80015175A /* crawler_object.m in Sources */ = {isa = PBXBuildFile; fileRef = C65C1B601F0F9456002E79FF /* crawler_object.m */; };
 		C622ECC11F1FC5D80015175A /* NSMutableArray+NSMutableFifo.m in Sources */ = {isa = PBXBuildFile; fileRef = C65C1B711F0FB802002E79FF /* NSMutableArray+NSMutableFifo.m */; };
-		C622ECC21F1FC6660015175A /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = C632868D1F14C60100A19010 /* TFHpple.m */; };
-		C622ECC31F1FC6660015175A /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = C632868E1F14C60100A19010 /* TFHppleElement.m */; };
-		C622ECC41F1FC6660015175A /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = C65C1B671F0F94AD002E79FF /* XPathQuery.m */; };
-		C622ECC51F1FC6660015175A /* HTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = C651E2F21F13DF0E006FB9F3 /* HTMLDocument.m */; };
-		C622ECC61F1FC6660015175A /* HTMLNode+XPath.m in Sources */ = {isa = PBXBuildFile; fileRef = C651E2F41F13DF0E006FB9F3 /* HTMLNode+XPath.m */; };
-		C622ECC71F1FC6660015175A /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C651E2F71F13DF0E006FB9F3 /* HTMLNode.m */; };
 		C65C1B6E1F0F95D0002E79FF /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C65C1B6D1F0F95D0002E79FF /* libxml2.tbd */; };
+		C6918CB51F30A924001886B7 /* HTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = C651E2F21F13DF0E006FB9F3 /* HTMLDocument.m */; };
+		C6918CB61F30A924001886B7 /* HTMLNode+XPath.m in Sources */ = {isa = PBXBuildFile; fileRef = C651E2F41F13DF0E006FB9F3 /* HTMLNode+XPath.m */; };
+		C6918CB71F30A924001886B7 /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C651E2F71F13DF0E006FB9F3 /* HTMLNode.m */; };
+		C6918CB81F30AA17001886B7 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = C632868D1F14C60100A19010 /* TFHpple.m */; };
+		C6918CB91F30AA17001886B7 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = C632868E1F14C60100A19010 /* TFHppleElement.m */; };
+		C6918CBA1F30AA17001886B7 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = C65C1B671F0F94AD002E79FF /* XPathQuery.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -432,15 +432,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6918CB81F30AA17001886B7 /* TFHpple.m in Sources */,
+				C6918CB91F30AA17001886B7 /* TFHppleElement.m in Sources */,
+				C6918CBA1F30AA17001886B7 /* XPathQuery.m in Sources */,
+				C6918CB51F30A924001886B7 /* HTMLDocument.m in Sources */,
+				C6918CB61F30A924001886B7 /* HTMLNode+XPath.m in Sources */,
+				C6918CB71F30A924001886B7 /* HTMLNode.m in Sources */,
 				C622ECBF1F1FC5D80015175A /* main.m in Sources */,
 				C622ECC01F1FC5D80015175A /* crawler_object.m in Sources */,
 				C622ECC11F1FC5D80015175A /* NSMutableArray+NSMutableFifo.m in Sources */,
-				C622ECC21F1FC6660015175A /* TFHpple.m in Sources */,
-				C622ECC31F1FC6660015175A /* TFHppleElement.m in Sources */,
-				C622ECC41F1FC6660015175A /* XPathQuery.m in Sources */,
-				C622ECC51F1FC6660015175A /* HTMLDocument.m in Sources */,
-				C622ECC61F1FC6660015175A /* HTMLNode+XPath.m in Sources */,
-				C622ECC71F1FC6660015175A /* HTMLNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,9 +459,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -500,14 +501,14 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
 				LD_RUNPATH_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lxml2",
 				);
-				SDKROOT = macosx;
+				SDKROOT = macosx10.10;
 			};
 			name = Debug;
 		};
@@ -515,9 +516,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -550,13 +552,13 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
 				LD_RUNPATH_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lxml2",
 				);
-				SDKROOT = macosx;
+				SDKROOT = macosx10.10;
 			};
 			name = Release;
 		};
@@ -568,7 +570,7 @@
 					"$(PROJECT_DIR)/crawler_datasheet/library",
 				);
 				GCC_PREFIX_HEADER = "${PRODUCT_NAME}/Prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -581,7 +583,7 @@
 					"$(PROJECT_DIR)/crawler_datasheet/library",
 				);
 				GCC_PREFIX_HEADER = "${PRODUCT_NAME}/Prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

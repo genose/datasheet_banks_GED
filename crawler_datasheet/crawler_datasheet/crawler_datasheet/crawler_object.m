@@ -590,8 +590,13 @@ static NSMutableDictionary *followedLink;
             }else {
                  NSLog(@" SQLServ_db  :: connectWithURL: connected .... : %@",errorConnect);
                 
+                
+//                dispatch_semaphore_t s = dispatch_semaphore_create(0);
+
+                
                 [[self SQLServ_db] execute:query whenDone:^(PGResult* result, NSError* error) {
                     NSLog(@" SQLServ_db :: query_1 :: pass ");
+
                     //                    if(result) {
                     NSLog(@" SQLServ_db :: query_1 :: obj execute: result :: %@ ", [result fetchRowAsDictionary]);
                     //                    }
@@ -600,10 +605,16 @@ static NSMutableDictionary *followedLink;
                     }
 //                    [[self SQLServ_db] disconnect];
 //                    cleared_status =  YES;
+//                            dispatch_semaphore_signal(s);
                     
                 }];
-                [[self SQLServ_db] _waitingPoolOperationForResult];
-                [[self SQLServ_db] _waitingPoolOperationForResultMaster];
+                
+                
+//                dispatch_semaphore_wait(s,DISPATCH_TIME_FOREVER);
+                 NSLog(@" SQLServ_db :: semaphore end :: pass ");
+
+//                [[self SQLServ_db] _waitingPoolOperationForResult];
+//                [[self SQLServ_db] _waitingPoolOperationForResultMaster];
                 [[self SQLServ_db] execute:query2 whenDone:^(PGResult* result, NSError* error) {
                     NSLog(@" SQLServ_db :: query_2 :: pass ");
                     //                    if(result) {
