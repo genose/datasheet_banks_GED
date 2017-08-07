@@ -611,7 +611,7 @@ static NSMutableDictionary *followedLink;
                 
                 
 //                dispatch_semaphore_wait(s,DISPATCH_TIME_FOREVER);
-                 NSLog(@" SQLServ_db :: semaphore end :: pass ");
+                 NSLog(@" SQLServ_db :: backmain end :: pass ");
 
 //                [[self SQLServ_db] _waitingPoolOperationForResult];
 //                [[self SQLServ_db] _waitingPoolOperationForResultMaster];

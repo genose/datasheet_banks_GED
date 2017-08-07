@@ -130,18 +130,20 @@ int main(int argc, const char * argv[]) {
     
     [[crawlers_obj objectAtIndex:0] resetFollowed];
     */
-    int stateColletedDatasheet = dispatch_jobs( [NSMutableArray arrayWithObjects:
-                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html",
-//                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/137274/AD/ADXL105EM-1.html",
-//                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/727243/MERITEK/AD.html",
-                                                 nil], followUrls_PAGESDATASHEET );
+//    int stateColletedDatasheet = dispatch_jobs( [NSMutableArray arrayWithObjects:
+//                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html",
+////                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/137274/AD/ADXL105EM-1.html",
+////                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/727243/MERITEK/AD.html",
+//                                                 nil], followUrls_PAGESDATASHEET );
 
-//    [[crawlers_obj objectAtIndex:0] initWithUrl: @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html"];
+    [[crawlers_obj objectAtIndex:0] initWithUrl: @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html"];
     //  [[crawlers_obj objectAtIndex:0] query:@" .... "];
     
        do {
         NSDate* theNextDate = [NSDate dateWithTimeIntervalSinceNow:resolutionTimeOut];
         isRunning = [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
+           NSLog(@" :::: .... %d",isRunning);
+        isRunning = [[NSRunLoop mainRunLoop] runMode:NSRunLoopCommonModes beforeDate:theNextDate];
         [NSThread sleepForTimeInterval:.1];
         NSLog(@" :::: .... %d",isRunning);
     } while(isRunning);
