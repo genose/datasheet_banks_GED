@@ -9,22 +9,22 @@
 #import "NSMutableArray+NSMutableFifo.h"
 
 @implementation NSMutableArray (NSMutableFifo)
-    
+
 -(id)pushFiFo
+{
+    //   NSMutableArray *array = [NSMutableArray arrayWithArray: self];
+    id elementFifo = nil;
+    if([self count])
     {
-        //   NSMutableArray *array = [NSMutableArray arrayWithArray: self];
-        id elementFifo = nil;
-        if([self count])
-        {
-            elementFifo = [self objectAtIndex:0];
-            [ self removeObjectAtIndex:0];
-        }
-        
-        else return nil;
-        
-        return elementFifo;
+        elementFifo = [self objectAtIndex:0];
+        [ self removeObjectAtIndex:0];
     }
     
+    else return nil;
+    
+    return elementFifo;
+}
+
 @end
 
 
@@ -32,9 +32,17 @@
 @implementation NSMutableArray (nsarray_ExtendUniqueKey)
 -(id)addObjectsFromArray_Unique:(NSArray *)otherArray
 {
-    
-    for (id objNew in otherArray) {
-        [self addObjectUnique: objNew];
+    if(!self)
+        return self;
+    @synchronized (self) {
+        
+        for (id objNew in otherArray) {
+            if(objNew != nil && [objNew respondsToSelector:@selector(description)])
+            {
+                [self addObjectUnique: objNew];
+            }
+        }
+        
     }
     
     return self;
@@ -80,7 +88,7 @@
 {
     
     
-//    [self attributeForName:@"nodeContent"];
+    //    [self attributeForName:@"nodeContent"];
     
     NSMutableArray *returnDict = [NSMutableArray array];
     
@@ -92,16 +100,16 @@
            &&  [object objectForKey: @"nodeContent" ] != nil
            && [[object objectForKey: @"nodeName"] isEqualToString:@"text"] ){
             [returnDict addObject: [object objectForKey: @"nodeContent" ]];
-//            NSLog(@"\n **************  \n Attribs :: %@ :: %@ \n **************  \n ",object,  [object objectForKey: @"nodeContent" ]);
+            //            NSLog(@"\n **************  \n Attribs :: %@ :: %@ \n **************  \n ",object,  [object objectForKey: @"nodeContent" ]);
         }else  if( [object isKindOfClass:[NSDictionary class]]
                   &&  [object objectForKey: @"nodeChildArray" ] != nil)
         {
-             [returnDict addObject: [[object  textContents] componentsJoinedByString:@""] ];
+            [returnDict addObject: [[object  textContents] componentsJoinedByString:@""] ];
         }
     }
     
     if([returnDict count]) return returnDict;
-
+    
     return nil;
 }
 -(id)attributeForName:(id)anObject

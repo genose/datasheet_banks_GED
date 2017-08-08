@@ -84,7 +84,7 @@ int main(int argc, const char * argv[]) {
 
 
 
-        //    int state = dispatch_jobs( operation_list, followUrls_ALL );
+            int state = dispatch_jobs( operation_list, followUrls_ALL );
 
         //
         //    static dispatch_once_t onceToken;
@@ -122,21 +122,24 @@ int main(int argc, const char * argv[]) {
         //    });
 
 
-    /* NSLog(@" ############## Collecting clear ....");
+     NSLog(@" ############## Collecting clear ....");
      NSLog(@" ############## \n COLECTED LINKS INDEX: (%ld) \n %@",[operation_list_collected count], nil);
 
      int stateColleted = dispatch_jobs( operation_list_collected_indexes, followUrls_INDEXES );
      NSLog(@" ############## \n :::::: COLECTED LINKS : (%ld) \n %@",[operation_list_collected count], nil);
 
      [[crawlers_obj objectAtIndex:0] resetFollowed];
-     */
-        //    int stateColletedDatasheet = dispatch_jobs( [NSMutableArray arrayWithObjects:
-        //                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html",
-        ////                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/137274/AD/ADXL105EM-1.html",
-        ////                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/727243/MERITEK/AD.html",
-        //                                                 nil], followUrls_PAGESDATASHEET );
+     
+            int stateColletedDatasheet = dispatch_jobs(
+                                                       operation_list_collected
+//                                                       [NSMutableArray arrayWithObjects:
+//                                                         @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html",
+//                                                         @"http://www.alldatasheet.com/datasheet-pdf/pdf/137274/AD/ADXL105EM-1.html",
+//        //                                                 @"http://www.alldatasheet.com/datasheet-pdf/pdf/727243/MERITEK/AD.html",
+//                                                         nil]
+                                                       , followUrls_PAGESDATASHEET );
 
-    [[crawlers_obj objectAtIndex:0] initWithUrl: @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html"];
+//    [[crawlers_obj objectAtIndex:0] initWithUrl: @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html"];
         //  [[crawlers_obj objectAtIndex:0] query:@" .... "];
     @try {
         do {
@@ -256,12 +259,12 @@ int dispatch_jobs(id jobsList, int followUrls)
 
 
 
-                                             NSLog(@" -------- CLEAR ::::  %@  \n ==== \n  fetchedData : %ld :: fetchedDataIndex : %ld  \n ==== \n ", PageCrawler,  (unsigned long)[[PageCrawler fetchedData] count],  [[PageCrawler fetchedDataIndex] count]);
-
+                                             NSLog(@" -------- CLEAR ::::  %@  \n ==== \n  fetchedData : %ld :: fetchedDataIndex : %ld \n ==== \n %@ \n ==== \n ", PageCrawler,  (unsigned long)[[PageCrawler fetchedData] count],  [[PageCrawler fetchedDataIndex] count], [NSThread currentThread]);
+                                           [NSThread sleepForTimeInterval:.2];
                                                  //                                                                 }];
                                          });
 
-                        //                   [NSThread sleepForTimeInterval:.2];
+                                           [NSThread sleepForTimeInterval:.2];
 
                     }else if([jobsList count]){
                         NSLog(@" ====  %@ ==== Something wrong in queue :: %ld :: %@ ", [NSThread currentThread], [jobsList count], urltoFetch);
@@ -275,12 +278,14 @@ int dispatch_jobs(id jobsList, int followUrls)
 
 
         inQueueWainting   = [jobsList count];
+            NSRunLoop *qq_loop = [NSRunLoop currentRunLoop];
+            NSRunLoop *qq_loop_main = [NSRunLoop mainRunLoop];
 
-
-            //NSDate* theNextDate = [NSDate dateWithTimeIntervalSinceNow:resolutionTimeOut];
-            //        bool isRunningthread = [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
-            //        isRunningthread = [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
-
+            NSDate* theNextDate = [NSDate dateWithTimeIntervalSinceNow:resolutionTimeOut];
+//                    bool isRunningthread = [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
+//                    isRunningthread = [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
+//            [qq_loop runUntilDate:theNextDate];
+//                            [qq_loop_main runUntilDate:theNextDate];
             //
         [NSThread sleepForTimeInterval:.1];
 

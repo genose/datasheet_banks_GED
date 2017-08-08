@@ -32,7 +32,7 @@
         
         
     }
-@property     NSString *document_url;
+@property (nonatomic) NSString *document_url;
 @property     long document_url_index;
 @property     bool document_url_index_follow;
 @property     int  document_url_index_child;
