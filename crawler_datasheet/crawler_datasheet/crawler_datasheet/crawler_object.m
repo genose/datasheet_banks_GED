@@ -202,9 +202,9 @@ static NSMutableDictionary *followedLink;
                 }
             }
             
-            if(![element_urls_indexes count]){
-                NSLog(@" ... NOPE ....");
-            }
+//            if(![element_urls_indexes count]){
+//                NSLog(@" ... NOPE ....");
+//            }
             
             
             NSString *XpathQueryString_pagesnext_link = [NSString stringWithFormat:@"//a[contains(@href,'.html')][contains(@href,'/%@-')][not(contains(@href,'pdf/'))]",  [uri_compo objectAtIndex:(([uri_compo count]>2)?[uri_compo count] -2 : 0) ]];
@@ -583,7 +583,7 @@ static NSMutableDictionary *followedLink;
                                                                                                         
                                                                                                         nil] ];
         
-        NSLog(@" Start Connection with  : %@ : %@", urlBDD_test, urlBDD);
+//        NSLog(@" Start Connection with  : %@ : %@", urlBDD_test, urlBDD);
        
         
         //  PGConnection * SQLServ_db = [PGConnection new];
@@ -591,7 +591,7 @@ static NSMutableDictionary *followedLink;
         //        [SQLServ_db connectWithURL:urlBDD_test usedPassword:&isConnected error:&cnxError];
         
         [((PGConnection*)[self SQLServ_db]) connectWithURL: urlBDD_test   whenDone:^(BOOL usedPassword, NSError *errorConnect) {
-            NSLog(@" SQLServ_db  :: .... :");
+//            NSLog(@" SQLServ_db  :: .... :");
             if(errorConnect) {
                 NSLog(@" SQLServ_db  :: connectWithURL: Error: %@",errorConnect);
                 //
@@ -599,7 +599,7 @@ static NSMutableDictionary *followedLink;
                 cleared_status =  YES;
                 
             }else {
-                NSLog(@" SQLServ_db  :: connectWithURL: connected .... : %@",errorConnect);
+//                NSLog(@" SQLServ_db  :: connectWithURL: connected .... : %@",errorConnect);
                 
                 [[self SQLServ_db] execute:query whenDone:^(PGResult* result, NSError* error) {
 //                    NSLog(@" SQLServ_db :: query_1 :: pass ");
@@ -642,7 +642,7 @@ static NSMutableDictionary *followedLink;
                 
             }
             
-            NSLog(@" SQLServ_db  ..... DONE :: .... : %@", [NSThread currentThread]);
+//            NSLog(@" SQLServ_db  ..... DONE :: .... : %@", [NSThread currentThread]);
             [[self SQLServ_db] disconnect];
 //            cleared_status =  YES;
         }];
@@ -662,7 +662,7 @@ static NSMutableDictionary *followedLink;
 //            
 //        }];
         
-        NSLog(@" SQLServ_db  ..... exit :: .... : %@", [NSThread currentThread]);
+//        NSLog(@" SQLServ_db  ..... exit :: .... : %@", [NSThread currentThread]);
         [[self SQLServ_db] disconnect];
         cleared_status =  YES;
     } @catch (NSException *exception) {
