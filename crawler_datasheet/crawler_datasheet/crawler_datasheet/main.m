@@ -181,8 +181,7 @@ int dispatch_jobs(id jobsList, int followUrls)
     id PageCrawler = nil;
     long inQueueWainting =  [jobsList count];
 
-    while ( ! allCleared(jobsList) )
-        {
+    while ( ! allCleared(jobsList) ) {
 
         PageCrawler = nil;
 
