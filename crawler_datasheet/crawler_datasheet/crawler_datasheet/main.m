@@ -259,11 +259,11 @@ int dispatch_jobs(id jobsList, int followUrls)
 
 
                                              NSLog(@" -------- CLEAR ::::  %@  \n ==== \n  fetchedData : %ld :: fetchedDataIndex : %ld \n ==== \n %@ \n ==== \n ", PageCrawler,  (unsigned long)[[PageCrawler fetchedData] count],  [[PageCrawler fetchedDataIndex] count], [NSThread currentThread]);
-                                           [NSThread sleepForTimeInterval:.2];
+//                                           [NSThread sleepForTimeInterval:.02];
                                                  //                                                                 }];
                                          });
 
-                                           [NSThread sleepForTimeInterval:.2];
+//                                           [NSThread sleepForTimeInterval:.02];
 
                     }else if([jobsList count]){
                         NSLog(@" ====  %@ ==== Something wrong in queue :: %ld :: %@ ", [NSThread currentThread], [jobsList count], urltoFetch);
@@ -286,7 +286,7 @@ int dispatch_jobs(id jobsList, int followUrls)
 //            [qq_loop runUntilDate:theNextDate];
 //                            [qq_loop_main runUntilDate:theNextDate];
             //
-        [NSThread sleepForTimeInterval:.1];
+        [NSThread sleepForTimeInterval:.02];
 
 
 

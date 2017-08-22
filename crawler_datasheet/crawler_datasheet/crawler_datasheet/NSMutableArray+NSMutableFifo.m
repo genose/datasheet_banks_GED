@@ -34,41 +34,51 @@
 {
     if(!self)
         return self;
-    @synchronized (self) {
-        
-        for (id objNew in otherArray) {
-            if(objNew != nil && [objNew respondsToSelector:@selector(description)])
-            {
-                [self addObjectUnique: objNew];
+    @try {
+        @synchronized (self) {
+            
+            for (id objNew in otherArray) {
+                if(objNew != nil && [objNew respondsToSelector:@selector(description)])
+                {
+                    [self addObjectUnique: objNew];
+                }
             }
+            
         }
-        
     }
-    
+    @catch (NSException *exception) {
+        ;;
+        NSLog(@" ERROR :: %@ :: %@ :: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), exception);
+    }
+    @finally {
+        ;;
+    }
     return self;
 }
 -(id)addObjectUnique:(id)anObject
 {
     @try {
-        NSMutableDictionary* keysObjects = [NSMutableDictionary dictionary];
-        int cntElement = [self count];
-        if(cntElement){
-            
-            for (int idx = 0; idx < cntElement-1; idx ++) {
-                id objInIdx = [self objectAtIndex:idx];
-                if(objInIdx != nil && keysObjects != nil)
-                {
-                    [keysObjects setObject:[NSString stringWithFormat:@"%d", idx] forKey:[NSString stringWithFormat:@"%@", objInIdx]];
+        @synchronized (self) {
+            NSMutableDictionary* keysObjects = [NSMutableDictionary dictionary];
+            int cntElement = [self count];
+            if(cntElement){
+                
+                for (int idx = 0; idx < cntElement-1; idx ++) {
+                    id objInIdx = [self objectAtIndex:idx];
+                    if(objInIdx != nil && keysObjects != nil)
+                    {
+                        [keysObjects setObject:[NSString stringWithFormat:@"%d", idx] forKey:[NSString stringWithFormat:@"%@", objInIdx]];
+                    }
                 }
             }
+            id keyedFound = [keysObjects objectForKey: [NSString stringWithFormat:@"%@",anObject]];
+            if( keyedFound == nil) {
+                [self addObject: anObject];
+            }else{
+                ;; // :: NSLog(@"duplicate : %@  :: %@ ", ((anObject)?[NSString stringWithFormat:@"%@",anObject]:@"----"), keyedFound);
+            }
+            [keysObjects removeAllObjects];
         }
-        id keyedFound = [keysObjects objectForKey: [NSString stringWithFormat:@"%@",anObject]];
-        if( keyedFound == nil) {
-            [self addObject: anObject];
-        }else{
-            ;; // :: NSLog(@"duplicate : %@  :: %@ ", ((anObject)?[NSString stringWithFormat:@"%@",anObject]:@"----"), keyedFound);
-        }
-        [keysObjects removeAllObjects];
         return self;
     }
     @catch (NSException *exception) {
