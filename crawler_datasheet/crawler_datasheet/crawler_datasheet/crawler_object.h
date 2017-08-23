@@ -22,16 +22,17 @@
         NSString *element_document_url;
         NSString *element_title;
         NSString *element_description;
-        NSData   *element_contents;
+    
         NSString   *element_contents_clear;
         NSMutableArray *element_urls;
         NSMutableArray *element_urls_relatives;
         NSMutableArray *element_urls_indexes;
         NSMutableArray *element_urls_indexes_pages_relatives;
         NSMutableArray *element_urls_documents;
-        
-        
+        NSURLResponse * response;
+        NSError *error ;
     }
+@property  id element_contents;
 @property (nonatomic) NSString *document_url;
 @property     long document_url_index;
 @property     bool document_url_index_follow;
@@ -46,6 +47,7 @@
 -(void)query: (NSString*)aQuery;
 
 -(id)fetchedDataIndexPages;
+-(id)doFetchData_prepare;
 -(id)doFetchData;
 -(id)fetchedData;
 -(id)fetchedDataIndex;

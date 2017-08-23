@@ -26,6 +26,8 @@ static NSMutableDictionary *followedLink;
 @synthesize document_url_index_follow;
 @synthesize document_url_index_child;
 
+@synthesize element_contents;
+
 // @synthesize SQLServ_db;
 @synthesize SQLServ_db = _SQLServ_db;
 
@@ -36,6 +38,7 @@ static NSMutableDictionary *followedLink;
     
     
     _SQLServ_db = [PGConnection new];
+    
     [_SQLServ_db setDelegate:self];
     cleared_status =  NO;
     //     document_url_index_follow = NO;
@@ -45,10 +48,13 @@ static NSMutableDictionary *followedLink;
     element_urls_indexes_pages_relatives = [NSMutableArray array];
     element_urls_relatives = [NSMutableArray array];
     element_urls = [NSMutableArray array];
+    element_contents = [NSMutableData data];
+    error = nil;
+    response = nil;
     
     if(followedLink == nil )
         followedLink = [NSMutableDictionary dictionary];
-    [self doFetchData];
+    [self doFetchData_prepare];
     
     return self;
 }
@@ -71,6 +77,27 @@ static NSMutableDictionary *followedLink;
         
     }
     
+}
+
+-(id)doFetchData_prepare
+{
+    
+     cleared_status =  NO;
+    //            element_contents = [NSData dataWithContentsOfURL: fetched_document_url options:(NSDataReadingUncached) error:&error];
+    
+    NSURL * fetched_document_url = [NSURL URLWithString: document_url ];
+
+    NSURLRequest *qRequest = [NSURLRequest requestWithURL: fetched_document_url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:120.0];
+    NSURLResponse * qresponse = nil;
+    NSError * qerror = nil;
+    element_contents = [NSURLConnection  sendSynchronousRequest:qRequest returningResponse:
+                        &qresponse error:
+                        &qerror ];
+    
+    error = qerror;
+    response = qresponse;
+    return [self doFetchData];
+   
 }
 
 -(id)doFetchData
@@ -114,15 +141,7 @@ static NSMutableDictionary *followedLink;
                 return self;
             }
             
-            NSError *error = nil;
-            
-            element_contents = [NSData dataWithContentsOfURL: fetched_document_url options:(NSDataReadingUncached) error:&error];
-            
-            //        NSURLRequest *qRequest = [NSURLRequest requestWithURL: url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
-            
-            //        NSURLConnection *qConnection = [[NSURLConnection alloc] initWithRequest:qRequest delegate:self];
-            
-            
+
             
             
             //            void* strChar = [element_contents bytes];
@@ -130,7 +149,7 @@ static NSMutableDictionary *followedLink;
             //                element_contents_clear = [NSString stringWithUTF8String:strChar];
             //
             if(element_contents == nil ) {
-                NSLog(@" :: Warning  :: %@ :: nil document %@", self, error);
+                NSLog(@" :: Warning  :: %@ :: nil elm_document \n :::: %@ :::: ", self, error);
                 cleared_status =  YES;
                 return self;
             }
@@ -642,7 +661,7 @@ static NSMutableDictionary *followedLink;
                                     }
                                 }];
                             }else{
-                                
+                                 NSLog(@" SQLServ_db :: query_DD :: ALREADY EXIST :: %@ :: %ld", result_select, [result_select count]);
                             }
                         }
                     }];
@@ -713,6 +732,29 @@ static NSMutableDictionary *followedLink;
 //-(void)connection:(PGConnection *)connection notificationOnChannel:(NSString* )channelName payload:(NSString* )payload {
 //    NSLog(@" SQLServ_db  delegate  :: %@ :: %@ ", NSStringFromSelector(_cmd),[NSString stringWithFormat:@"Notification: %@ Payload: %@",channelName,payload ]);
 //}
+
+#pragma mark - NSURLConnection Delegate Methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    [element_contents setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [element_contents appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    NSLog(@"Connection failed: %@", [error description]);
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    //Getting your response string
+    NSString *responseString = [[NSString alloc] initWithData:element_contents encoding:NSUTF8StringEncoding];
+//    element_contents = nil;
+    [self doFetchData];
+    cleared_status =  YES;
+}
+
 @end
 
 @implementation NSXMLElement (nsdictExtend)
