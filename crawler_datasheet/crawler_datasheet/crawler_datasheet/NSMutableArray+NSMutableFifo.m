@@ -60,10 +60,16 @@
     @try {
         @synchronized (self) {
             NSMutableDictionary* keysObjects = [NSMutableDictionary dictionary];
-            int cntElement = [self count];
+            long cntElement = [self count];
             if(cntElement){
                 
-                for (int idx = 0; idx < cntElement-1; idx ++) {
+                for (long idx = 0; idx <= cntElement-1; idx ++) {
+                    cntElement = [self count];
+                    if(idx > cntElement-1) {
+                               NSLog(@" ERROR :: %@ :: %@ :: overflow index :: %ld / %ld", NSStringFromClass([self class]), NSStringFromSelector(_cmd), idx, cntElement);
+                        break;
+                    }
+
                     id objInIdx = [self objectAtIndex:idx];
                     if(objInIdx != nil && keysObjects != nil)
                     {

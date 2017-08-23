@@ -141,25 +141,25 @@ int main(int argc, const char * argv[]) {
 
 //    [[crawlers_obj objectAtIndex:0] initWithUrl: @"http://www.alldatasheet.com/datasheet-pdf/pdf/44205/SIEMENS/BAT66-05.html"];
         //  [[crawlers_obj objectAtIndex:0] query:@" .... "];
-    @try {
-        do {
-
-            if(! [NSRunLoop mainRunLoop]  || ! [NSRunLoop currentRunLoop] ) break;
-            NSDate* theNextDate = [NSDate dateWithTimeIntervalSinceNow:resolutionTimeOut];
-            isRunning = [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
-            NSLog(@" :::: .... %d",isRunning);
-            isRunning = [[NSRunLoop mainRunLoop] runMode:NSRunLoopCommonModes beforeDate:theNextDate];
-            [NSThread sleepForTimeInterval:.1];
-            NSLog(@" :::: .... %d",isRunning);
-
-        } while(isRunning);
-    }
-    @catch (NSException *exception) {
-        NSLog(@" Run loop exeception .... %@",exception);
-    }
-    @finally {
-
-    }
+//    @try {
+//        do {
+//
+//            if(! [NSRunLoop mainRunLoop]  || ! [NSRunLoop currentRunLoop] ) break;
+//            NSDate* theNextDate = [NSDate dateWithTimeIntervalSinceNow:resolutionTimeOut];
+//            isRunning = [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:theNextDate];
+//            NSLog(@" :::: .... %d",isRunning);
+//            isRunning = [[NSRunLoop mainRunLoop] runMode:NSRunLoopCommonModes beforeDate:theNextDate];
+//            [NSThread sleepForTimeInterval:.1];
+//            NSLog(@" :::: .... %d",isRunning);
+//
+//        } while(isRunning);
+//    }
+//    @catch (NSException *exception) {
+//        NSLog(@" Run loop exeception .... %@",exception);
+//    }
+//    @finally {
+//
+//    }
 
         //
     return 0;
@@ -263,7 +263,7 @@ int dispatch_jobs(id jobsList, int followUrls)
                                                  //                                                                 }];
                                          });
 
-//                                           [NSThread sleepForTimeInterval:.02];
+                                           [NSThread sleepForTimeInterval:.02];
 
                     }else if([jobsList count]){
                         NSLog(@" ====  %@ ==== Something wrong in queue :: %ld :: %@ ", [NSThread currentThread], [jobsList count], urltoFetch);
@@ -286,7 +286,7 @@ int dispatch_jobs(id jobsList, int followUrls)
 //            [qq_loop runUntilDate:theNextDate];
 //                            [qq_loop_main runUntilDate:theNextDate];
             //
-        [NSThread sleepForTimeInterval:.02];
+        [NSThread sleepForTimeInterval:.05];
 
 
 

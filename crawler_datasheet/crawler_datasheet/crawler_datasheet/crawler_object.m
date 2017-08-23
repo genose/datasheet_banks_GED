@@ -106,7 +106,9 @@ static NSMutableDictionary *followedLink;
                 return self ;
             }
             
-            if([followedLink objectForKey:compoUrl] || [followedLink objectForKey:document_url] || document_url_index_child >2) {
+            if([followedLink objectForKey:compoUrl] || [followedLink objectForKey:document_url]
+//               || document_url_index_child >2
+               ) {
                 NSLog(@" .....  ALREADY DONE  :: FOOLOW Link (%@) ", compoUrl);
                 cleared_status =  YES;
                 return self;
@@ -623,7 +625,7 @@ static NSMutableDictionary *followedLink;
                     
                     [[self SQLServ_db] execute:query whenDone:^(PGResult* result_select, NSError* error_select) {
                         if(error_select) {
-                            NSLog(@" SQLServ_db :: query_1 :: obj execute:error :: %@ :: %@", result_select, error_select);
+                            NSLog(@" SQLServ_db :: query_3 :: obj execute:error :: %@ :: %@", result_select, error_select);
                         }else{
                             if( !result_select || ![result_select count] ){
                                 
