@@ -661,7 +661,7 @@ static NSMutableDictionary *followedLink;
                                     }
                                 }];
                             }else{
-                                 NSLog(@" SQLServ_db :: query_DD :: ALREADY EXIST :: %@ :: %ld", result_select, [result_select count]);
+                                 NSLog(@" SQLServ_db (%p :: %@) :: query_DD :: ALREADY EXIST :: %@ :: %ld", self, element_document_url, result_select, [result_select count]);
                             }
                         }
                     }];
