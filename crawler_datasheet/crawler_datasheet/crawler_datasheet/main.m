@@ -122,7 +122,7 @@ int main(int argc, const char * argv[]) {
         //    });
 
 
-     NSLog(@" ############## Collecting clear ....");
+//     NSLog(@" ############## Collecting clear ....");
      NSLog(@" ############## \n COLECTED LINKS INDEX: (%ld) \n %@",[operation_list_collected count], nil);
 
      int stateColleted = dispatch_jobs( operation_list_collected_indexes, followUrls_INDEXES );
@@ -257,8 +257,8 @@ int dispatch_jobs(id jobsList, int followUrls)
                                              }
 
 
-
-                                             NSLog(@" -------- CLEAR ::::  %@  \n ==== \n  fetchedData : %ld :: fetchedDataIndex : %ld \n ==== \n %@ \n ==== \n ", PageCrawler,  (unsigned long)[[PageCrawler fetchedData] count],  [[PageCrawler fetchedDataIndex] count], [NSThread currentThread]);
+ NSLog(@" -------- CLEAR ::::  %@  \n ====", PageCrawler);
+//                                             NSLog(@" -------- CLEAR ::::  %@  \n ==== \n  fetchedData : %ld :: fetchedDataIndex : %ld \n ==== \n %@ \n ==== \n ", PageCrawler,  (unsigned long)[[PageCrawler fetchedData] count],  [[PageCrawler fetchedDataIndex] count], [NSThread currentThread]);
 //                                           [NSThread sleepForTimeInterval:.02];
                                                  //                                                                 }];
                                          });
@@ -327,14 +327,14 @@ void addLinkCollecting(id linkArray)
     }
     @synchronized (operation_list_collected) {
         @try{
-            NSLog(@" ############## >>>> Collecting  ....");
+//            NSLog(@" ############## >>>> Collecting  ....");
             [operation_list_collected addObjectsFromArray: linkArray] ;
         } @catch (NSException *exception) {
             NSLog(@" MAIN :: ERROR :: addLinkCollecting :::: \n :: %@ \n :: (%ld) :: %@",exception , [linkArray count],  linkArray);
         } @finally {
             ;;
         }
-        NSLog(@" ############## <<<<< Clear Collected  (%ld::%ld) ....", [operation_list_collected count], [linkArray count]);
+//        NSLog(@" ############## <<<<< Clear Collected  (%ld::%ld) ....", [operation_list_collected count], [linkArray count]);
     }
     
 }
@@ -346,14 +346,14 @@ void addLinkCollectingIndex(id linkArray)
     }
     @synchronized (operation_list_collected) {
         @try{
-            NSLog(@" ############## >>>> Collecting INDEXES ....");
+//            NSLog(@" ############## >>>> Collecting INDEXES ....");
             [operation_list_collected_indexes addObjectsFromArray_Unique: linkArray] ;
         } @catch (NSException *exception) {
             NSLog(@" MAIN :: ERROR :: addLinkCollecting :::: \n :: %@ \n :: (%ld) :: %@",exception , [linkArray count],  linkArray);
         } @finally {
             ;;
         }
-        NSLog(@" ############## <<<<< Clear Collected  INDEXES (%ld::%ld) ....", [operation_list_collected_indexes count], [linkArray count]);
+//        NSLog(@" ############## <<<<< Clear Collected  INDEXES (%ld::%ld) ....", [operation_list_collected_indexes count], [linkArray count]);
     }
     
 }

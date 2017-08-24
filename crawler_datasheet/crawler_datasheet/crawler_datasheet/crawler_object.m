@@ -136,7 +136,7 @@ static NSMutableDictionary *followedLink;
             if([followedLink objectForKey:compoUrl] || [followedLink objectForKey:document_url]
 //               || document_url_index_child >2
                ) {
-                NSLog(@" .....  ALREADY DONE  :: FOOLOW Link (%@) ", compoUrl);
+//                NSLog(@" .....  ALREADY DONE  :: FOOLOW Link (%@) ", compoUrl);
                 cleared_status =  YES;
                 return self;
             }
@@ -501,8 +501,8 @@ static NSMutableDictionary *followedLink;
             
         }
         
-        NSLog(@" ..... %@  :: SELF << (%@) adding (%ld :: %ld) ",NSStringFromClass([self class]), ((document_url_index_child > 1)? [NSString stringWithFormat: @"CSTHILD (%d) ::", document_url_index_child]: @"") ,  [[self fetchedData] count], [[self fetchedDataIndex] count]);
-        
+//        NSLog(@" ..... %@  :: SELF << (%@) adding (%ld :: %ld) ",NSStringFromClass([self class]), ((document_url_index_child > 1)? [NSString stringWithFormat: @"CSTHILD (%d) ::", document_url_index_child]: @"") ,  [[self fetchedData] count], [[self fetchedDataIndex] count]);
+
         //        if(document_url_index_follow){
         //            addLinkCollectingIndex([self fetchedDataIndexPages]);
         //        }
@@ -655,7 +655,7 @@ static NSMutableDictionary *followedLink;
                                     //                        NSLog(@" SQLServ_db :: query_DD :: obj execute: result :: %@ ", [result fetchRowAsDictionary]);
                                     
                                     if(error_insert) {
-                                        NSLog(@" SQLServ_db :: query_DD :: obj execute:error :: %@ :: %@", result_insert, error_insert);
+                                        NSLog(@" ---- SQLServ_db :: query_DD :: obj execute:error :: %@ :: %@", result_insert, error_insert);
                                     }else{
                                         NSLog(@" \n $$$$$$$$ So we Got \n :: name (%@)\n :: description (%@)\n :: Maker (%@)\n :: Datasheeet at (%@) \n  $$$$$$$$ \n", element_name, element_description, element_name_constructor, element_document_url  );
                                     }
@@ -669,7 +669,7 @@ static NSMutableDictionary *followedLink;
                 }
             }
             
-            //            NSLog(@" SQLServ_db  ..... DONE :: .... : %@", [NSThread currentThread]);
+                        NSLog(@" SQLServ_db  ..... DONE :: .... : %@", [NSThread currentThread]);
             [[self SQLServ_db] disconnect];
                         cleared_status =  YES;
         }];
@@ -699,7 +699,7 @@ static NSMutableDictionary *followedLink;
     } @finally {
         ;;
     }
-    cleared_status =  YES;
+//    cleared_status =  YES;
   }
 //-(void)connection:(PGConnection* )connection willOpenWithParameters:(NSMutableDictionary* )dictionary{
 //    NSLog(@" SQLServ_db   delegate :: %@ :: %@ ", NSStringFromSelector(_cmd), dictionary);
